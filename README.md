@@ -1,1 +1,1 @@
-AI learns to to play Google dinosaur game
+AI learns how to to play Google dinosaur game
