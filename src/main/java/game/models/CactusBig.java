@@ -8,11 +8,11 @@ import java.util.Random;
 
 public class CactusBig extends Obstacle{
     private ImageView obstacleView = new ImageView();
-    private Image oneCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusBig0000.png")
+    private Image oneCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusBigOne.png")
             ,this.getWidth(),this.getHeight(),true,false);
-    private Image twoCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallMany0000.png")
+    private Image twoCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusBigTwo.png")
             ,this.getWidth()*2,this.getHeight(),true,false);
-    private Image threeCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallMany0000.png")
+    private Image threeCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusBigThree.png")
             ,this.getWidth()*3,this.getHeight(),true,false);
 
     private Random random = new Random();

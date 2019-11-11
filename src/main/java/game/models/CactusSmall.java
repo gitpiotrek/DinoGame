@@ -8,13 +8,14 @@ import java.util.Random;
 
 public class CactusSmall extends Obstacle {
    private ImageView obstacleView = new ImageView();
-   private Image oneCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmall0000.png")
+   private Image oneCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallOne.png")
       ,this.getWidth(),this.getHeight(),true,false);
-   private Image twoCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallTwo.png"));
-   private Image threeCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallThree.png"));
-    private Image fourCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallMany0000.png")
+   private Image twoCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallTwo.png")
+           ,this.getWidth()*2,this.getHeight(),true,false);
+   private Image threeCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallThree.png")
+           ,this.getWidth()*3,this.getHeight(),true,false);
+    private Image fourCactus = new Image(this.getClass().getResourceAsStream("/drawable/cactusSmallFour.png")
             ,this.getWidth()*4,this.getHeight(),true,false);
-
 
     private Random random = new Random();
     public CactusSmall(Node view, double width, double height, int xPos, int yPos, int minGap) {
@@ -27,8 +28,6 @@ public class CactusSmall extends Obstacle {
         this.setHeight(35.0);
         this.setView(obstacleView);
         obstacleView.setImage(selectSize());
-        obstacleView.setFitHeight(this.getHeight());
-        obstacleView.setFitWidth(this.getWidth()*2);
         this.getView().setTranslateX(590.0);
         this.getView().setTranslateY(311.0);
 

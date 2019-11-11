@@ -104,7 +104,6 @@ public class Dinosaur extends GameObject{
     public void jump() {
         this.jumping = true;
         this.up = true;
-        System.out.println("elo");
        // this.setView(jumpingDino);
     }
 

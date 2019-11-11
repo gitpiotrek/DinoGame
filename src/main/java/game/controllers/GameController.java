@@ -120,23 +120,5 @@ gamePane.setOnKeyReleased((event -> {
     {
         player.jumping();
     }
-
-        /*
-        if (player.jumping){
-            if((player.getView().getTranslateY() >= 230.0) && player.up){
-                player.getView().setTranslateY(player.getView().getTranslateY() -2);
-            }
-            else if((player.getView().getTranslateY() <= 311.0) && !player.up) {
-                player.getView().setTranslateY(player.getView().getTranslateY() + 2);
-                if(player.getView().getTranslateY() == 311.0){
-                    player.jumping = false;
-                }
-            }
-            else {
-                player.up = false;
-
-            }
-        }
-         */
     }
 }
