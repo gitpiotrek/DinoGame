@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="" />
+    <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/cactusSmallThree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/cactusSmallTwo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/DinoGame.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/Obstacle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/PhysicAbstraction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/dinoJump0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/dinoduck0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/dinoduckright.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/dinoduck0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/dinoduckleft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/dinorun0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/dinorunleft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/dinorun0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/dinorunright.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/dinoJump0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/dinoduck0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/dinoduckright.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/dinoduck0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/dinoduckleft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/dinorun0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/dinorunleft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/dinorun0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/dinorunright.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$Obstacle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/GameObject.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,10 +49,23 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TCqqYfALXat3bSa4Up2U8lkJoi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/drawable" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -23,6 +73,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\java" />
     </key>
@@ -71,5 +122,18 @@
       <updated>1572974616856</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

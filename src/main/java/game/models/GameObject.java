@@ -5,9 +5,12 @@ import javafx.scene.Node;
 
 public class GameObject {
     private Node view;
-    private Point2D velocity = new Point2D(-2, 0);
+    private Point2D velocity = new Point2D(-6, 0);
 
     private boolean alive = true;
+
+    public GameObject() {
+    }
 
     public GameObject(Node view) {
         this.view = view;
@@ -28,6 +31,10 @@ public class GameObject {
 
     public Node getView() {
         return view;
+    }
+
+    public void setView(Node view) {
+        this.view = view;
     }
 
     public boolean isAlive() {

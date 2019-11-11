@@ -18,6 +18,7 @@ public class MainGameStarter extends Application {
         Pane root = loader.load();
         Scene scene = new Scene(root);
         scene.onKeyPressedProperty().bind(root.onKeyPressedProperty());
+        scene.onKeyReleasedProperty().bind(root.onKeyReleasedProperty());
         primaryStage.setScene(scene);
 
         primaryStage.getIcons().add(new Image(this.getClass().getResource("/drawable/dino0000.png").openStream()));
