@@ -5,7 +5,8 @@ import javafx.scene.Node;
 
 public class GameObject {
     private Node view;
-    private Point2D velocity = new Point2D(-6, 0);
+    //private Point2D velocity = new Point2D(-6, 0);
+    private double velocity = 6;
 
     private boolean alive = true;
 
@@ -17,17 +18,14 @@ public class GameObject {
     }
 
     public void update() {
-        view.setTranslateX(view.getTranslateX() + velocity.getX());
+        view.setTranslateX(view.getTranslateX() - velocity);
        // view.setTranslateY(view.getTranslateY() + velocity.getY());
     }
 
-    public void setVelocity(Point2D velocity) {
+    public void setVelocity(double velocity) {
         this.velocity = velocity;
     }
 
-    public Point2D getVelocity() {
-        return velocity;
-    }
 
     public Node getView() {
         return view;
@@ -51,7 +49,7 @@ public class GameObject {
     public double getRotate() {
         return view.getRotate();
     }
-
+/*
     public void rotateRight() {
         view.setRotate(view.getRotate() + 5);
         setVelocity(new Point2D(Math.cos(Math.toRadians(getRotate())), Math.sin(Math.toRadians(getRotate()))));
@@ -61,7 +59,7 @@ public class GameObject {
         view.setRotate(view.getRotate() - 5);
         setVelocity(new Point2D(Math.cos(Math.toRadians(getRotate())), Math.sin(Math.toRadians(getRotate()))));
     }
-
+*/
     public boolean isColliding(GameObject other) {
         return getView().getBoundsInParent().intersects(other.getView().getBoundsInParent());
     }

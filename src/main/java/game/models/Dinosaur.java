@@ -4,12 +4,12 @@ import game.controllers.GameController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import static game.models.PhysicAbstraction.GRAVITY;
 
 public class Dinosaur extends GameObject{
 
     private boolean jumping = false;
     private boolean duck = false;
-    private boolean up = false;
     //flag for animate running dinosaur
     private boolean runningLeg = false;
    private ImageView animateMovement = new ImageView();
@@ -28,7 +28,7 @@ public class Dinosaur extends GameObject{
     private int runningTime = 25;
     private int xPos;
     private int yPos;
-
+private double jumpSpeed = 4.0;
     public Dinosaur(Node view) {
         super(view);
     }
@@ -39,7 +39,8 @@ public class Dinosaur extends GameObject{
         this.getView().setTranslateX(10.0);
         this.getView().setTranslateY(311.0);
     }
-
+/**
+ * old jumping method
     public void jumping(){
         if (this.jumping){
             if((this.getView().getTranslateY() >= 180.0) && this.up){
@@ -65,6 +66,26 @@ public class Dinosaur extends GameObject{
             }
         }
     }
+ */
+public void jumping(){
+    if (this.jumping) {
+        /*
+        if ((this.getView().getTranslateY() <= 311.0) && jumpSpeed == 4.0) {
+            animateMovement.setImage(jumpingDino);
+        }
+
+         */
+            this.getView().setTranslateY(this.getView().getTranslateY() - jumpSpeed);
+            jumpSpeed -= GRAVITY;
+
+        if ((this.getView().getTranslateY() >= 311.0) && jumpSpeed < 0.0) {
+            this.jumping = false;
+            jumpSpeed = 4.0;
+            update();
+        }
+    }
+}
+
 // cos działa xD
     @Override
     public void update(){
@@ -83,7 +104,7 @@ public class Dinosaur extends GameObject{
             }
             else --runningTime;
         }
-        else if(duck){
+        else if(duck && !jumping){
             if(runningTime == 0) {
                 if (runningLeg) {
                     // this.setView(leftLeg);
@@ -98,18 +119,21 @@ public class Dinosaur extends GameObject{
             }
 
             else --runningTime;
+        }else {
+            animateMovement.setImage(jumpingDino);
         }
     }
 
     public void jump() {
         this.jumping = true;
-        this.up = true;
+       // this.up = true;
        // this.setView(jumpingDino);
     }
 
     public boolean  isJumping() {
         return jumping;
     }
+    public boolean isDucking(){return duck;}
 
     public void duck(){
         this.duck = true;

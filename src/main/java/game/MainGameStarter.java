@@ -2,6 +2,7 @@ package game;
 
 import game.controllers.GameController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -21,6 +22,9 @@ public class MainGameStarter extends Application {
         scene.onKeyReleasedProperty().bind(root.onKeyReleasedProperty());
         primaryStage.setScene(scene);
 
+        primaryStage.setOnCloseRequest(event -> {
+            System.exit(0);
+        });
         primaryStage.getIcons().add(new Image(this.getClass().getResource("/drawable/dino0000.png").openStream()));
         primaryStage.setTitle("DinoGame");
         primaryStage.show();
