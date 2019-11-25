@@ -94,7 +94,7 @@ gamePane.setOnKeyReleased((event -> {
             }
         };
 
-        timer.schedule(animation,0,17);
+        timer.schedule(animation,0,16);
 
         executorService.scheduleAtFixedRate(this,0,200, TimeUnit.MILLISECONDS);
         ioThread.setName("Thread for io calculation");

@@ -28,7 +28,7 @@ public class CactusSmall extends Obstacle {
         this.setHeight(35.0);
         this.setView(obstacleView);
         obstacleView.setImage(selectSize());
-        this.getView().setTranslateX(590.0);
+        this.getView().setTranslateX(735.0);
         this.getView().setTranslateY(311.0);
 
 }

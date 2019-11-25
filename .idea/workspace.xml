@@ -4,9 +4,12 @@
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574641996855</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="AnimationTask refactored to TimerTask, bc of the linux problems">
+      <created>1574646441778</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574646441779</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Neural network classed added" />
     <MESSAGE value="Score added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Score added" />
+    <MESSAGE value="AnimationTask refactored to TimerTask, bc of the linux problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="AnimationTask refactored to TimerTask, bc of the linux problems" />
   </component>
 </project>
