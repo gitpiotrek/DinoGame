@@ -132,7 +132,6 @@ gamePane.setOnKeyReleased((event -> {
         timer.stop();
         score.resetScore();
         endGame.setVisible(true);
-        executorService.shutdown();
 
 
         gamePane.setOnKeyPressed((e) -> {
@@ -140,6 +139,7 @@ gamePane.setOnKeyReleased((event -> {
                 timer.start();
                 obstacle.setAlive(false);
                 drawObsticle();
+                player.getView().setTranslateY(311.0);
                 endGame.setVisible(false);
                 setSpaceOnKeyPressed();
             }
@@ -167,7 +167,7 @@ gamePane.setOnKeyReleased((event -> {
         nodeInput.setPterodactylHeight((obstacle instanceof Pterodactyl?obstacle.getView().getTranslateY():0.0));
         nodeInput.setHeightOfObstacle(obstacle.getHeight()/50);
         nodeInput.setWidthOfObstacle(obstacle.getWidth()/46);
-        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
+        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-380)/100);
         nodeInput.setVelocity((this.currentSpeed-6)/14);
 
         nodeInput.setState(returnState());
