@@ -2,50 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/drawable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/drawable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/drawable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/drawable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/GameView.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574630400341</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Score added">
+      <created>1574641996855</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574641996855</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +159,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Neural network classed added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Neural network classed added" />
+    <MESSAGE value="Score added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Score added" />
   </component>
 </project>

@@ -1,6 +1,5 @@
 package game.models;
 
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 
 public class Score {
@@ -20,7 +19,9 @@ public class Score {
     public void setView(Label view) {
         this.view = view;
     }
-
+    public void resetScore(){
+        this.score =0;
+    }
     public void onUpdate(double speed){
         score+=(speed);
         view.setText(Integer.toString(score));

@@ -6,6 +6,7 @@ import ai.communication.NodeInput;
 import ai.communication.State;
 import game.models.*;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyCode;
@@ -14,6 +15,8 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -80,16 +83,22 @@ gamePane.setOnKeyReleased((event -> {
 
 //Threads
 
-        AnimationTimer timer = new AnimationTimer() {
+        Timer timer = new Timer();
+        TimerTask animation = new TimerTask() {
             @Override
-            public void handle(long now) {
-                onUpdate();
+            public void run() {
+
+                Platform.runLater(()-> {
+                    onUpdate();
+                });
             }
         };
-        timer.start();
+
+        timer.schedule(animation,0,17);
+
         executorService.scheduleAtFixedRate(this,0,200, TimeUnit.MILLISECONDS);
-ioThread.setName("Thread for io calculation");
-ioThread.start();
+        ioThread.setName("Thread for io calculation");
+        ioThread.start();
     }
 
     /*
@@ -119,6 +128,7 @@ ioThread.start();
         if(player.isColliding(obstacle))
 
     {
+        score.resetScore();
         //System.out.println("EndGame");
     }
         if(!obstacle.isAlive()) {
