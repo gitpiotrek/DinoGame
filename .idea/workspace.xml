@@ -4,12 +4,9 @@
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +39,9 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574637328472" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -137,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574646441779</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changed obstacles spawn X position">
+      <created>1574647199064</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574647199064</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +175,7 @@
     <MESSAGE value="Neural network classed added" />
     <MESSAGE value="Score added" />
     <MESSAGE value="AnimationTask refactored to TimerTask, bc of the linux problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="AnimationTask refactored to TimerTask, bc of the linux problems" />
+    <MESSAGE value="Changed obstacles spawn X position" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed obstacles spawn X position" />
   </component>
 </project>

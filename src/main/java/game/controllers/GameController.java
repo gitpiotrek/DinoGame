@@ -9,6 +9,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
@@ -27,6 +28,8 @@ public class GameController implements Initializable, Runnable{
     private Score score;
     private Dinosaur player;
     private Obstacle obstacle;
+    private Label endGame;
+    private  AnimationTimer timer;
     private Random random = new Random();
     private double currentSpeed = 6;
     private DataReceiver dataReceiver = new DataReceiver();
@@ -47,11 +50,19 @@ public class GameController implements Initializable, Runnable{
     public void initialize(URL location, ResourceBundle resources) {
         score = new Score();
         player = new Dinosaur();
+        endGame = new Label();
+        endGame.setTranslateX(310);
+        endGame.setTranslateY(190);
+        endGame.setText("GAME OVER");
         //player.getView().setTranslateX(10.0);
        // player.getView().setTranslateY(311.0);
         gamePane.getChildren().add(player.getView());
 
         gamePane.getChildren().add(score.getView());
+
+        gamePane.getChildren().add(endGame);
+        endGame.setVisible(false);
+
       //  ImageView obstacleView = new ImageView(
        //         new Image(GameController.class.getResourceAsStream("/drawable/cactusSmall0000.png")));
         // Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
@@ -65,15 +76,8 @@ public class GameController implements Initializable, Runnable{
 
 
         gamePane.requestFocus();
+        setSpaceOnKeyPressed();
 
-        gamePane.setOnKeyPressed((e) -> {
-            if ((e.getCode() == KeyCode.SPACE) && (player.isJumping() == false)) {
-                player.jump();
-            }
-            else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
-                player.duck();
-            }
-        });
 gamePane.setOnKeyReleased((event -> {
     if(((event.getCode() == KeyCode.DOWN) || (event.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
         System.out.println("key released");
@@ -82,19 +86,15 @@ gamePane.setOnKeyReleased((event -> {
 }));
 
 //Threads
-
-        Timer timer = new Timer();
-        TimerTask animation = new TimerTask() {
+        timer = new AnimationTimer() {
             @Override
-            public void run() {
-
-                Platform.runLater(()-> {
-                    onUpdate();
-                });
+            public void handle(long l) {
+                onUpdate();
             }
         };
+        timer.start();
 
-        timer.schedule(animation,0,16);
+
 
         executorService.scheduleAtFixedRate(this,0,200, TimeUnit.MILLISECONDS);
         ioThread.setName("Thread for io calculation");
@@ -128,31 +128,27 @@ gamePane.setOnKeyReleased((event -> {
         if(player.isColliding(obstacle))
 
     {
+
+        timer.stop();
         score.resetScore();
+        endGame.setVisible(true);
+        executorService.shutdown();
+
+
+        gamePane.setOnKeyPressed((e) -> {
+            if ((e.getCode() == KeyCode.SPACE)) {
+                timer.start();
+                obstacle.setAlive(false);
+                drawObsticle();
+                endGame.setVisible(false);
+                setSpaceOnKeyPressed();
+            }
+            else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
+            }
+        });
         //System.out.println("EndGame");
     }
-        if(!obstacle.isAlive()) {
-        gamePane.getChildren().remove(obstacle.getView());
-      //  System.out.println("Current speed is: " + currentSpeed);
-        int obstacleNumber = random.nextInt(3);
-        switch (obstacleNumber){
-            case 0:
-                obstacle = new CactusSmall();
-                break;
-            case 1:
-                obstacle = new CactusBig();
-                break;
-            default:
-                obstacle = new Pterodactyl();
-                break;
-        }
-       // obstacle = new Obstacle(obstacleView);
-        //obstacle.getView().setTranslateX(590.0);
-        //obstacle.getView().setTranslateY(311.0);
-            obstacle.setVelocity(currentSpeed);
-        gamePane.getChildren().add(obstacle.getView());
-
-    }
+        drawObsticle();
         if(player.isJumping())
     {
         player.jumping();
@@ -186,5 +182,38 @@ gamePane.setOnKeyReleased((event -> {
         }else if(player.isDucking() && player.isJumping()){
             return State.SMALL_JUMP;
         }else {return State.RUN;}
+    }
+    public void drawObsticle(){
+        if(!obstacle.isAlive()) {
+            gamePane.getChildren().remove(obstacle.getView());
+            //  System.out.println("Current speed is: " + currentSpeed);
+            int obstacleNumber = random.nextInt(3);
+            switch (obstacleNumber){
+                case 0:
+                    obstacle = new CactusSmall();
+                    break;
+                case 1:
+                    obstacle = new CactusBig();
+                    break;
+                default:
+                    obstacle = new Pterodactyl();
+                    break;
+            }
+            // obstacle = new Obstacle(obstacleView);
+            //obstacle.getView().setTranslateX(590.0);
+            //obstacle.getView().setTranslateY(311.0);
+            obstacle.setVelocity(currentSpeed);
+            gamePane.getChildren().add(obstacle.getView());
+
+        }}
+    public void setSpaceOnKeyPressed(){
+        gamePane.setOnKeyPressed((e) -> {
+            if ((e.getCode() == KeyCode.SPACE) && (player.isJumping() == false)) {
+                player.jump();
+            }
+            else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
+                player.duck();
+            }
+        });
     }
 }
