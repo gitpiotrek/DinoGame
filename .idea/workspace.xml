@@ -2,11 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/DinoGame.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/drawable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/drawable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/drawable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/drawable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/drawable/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/GameView.fxml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,142 +57,34 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/State.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="430" />
-    <option name="y" value="92" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1TCqqYfALXat3bSa4Up2U8lkJoi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="communication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DinoGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DinoGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574630365170" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574637328472" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Filip\Desktop\DinoGame\src\main\java\neural" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\java" />
@@ -170,10 +102,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainGameStarter">
     <configuration name="MainGameStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.MainGameStarter" />
       <module name="DinoGame" />
+      <option name="VM_PARAMETERS" value="--module-path /usr/share/openjfx/lib --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="game.*" />
@@ -184,9 +117,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="neural.test" />
+      <module name="DinoGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neural.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainGameStarter" />
+      <item itemvalue="Application.test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainGameStarter" />
+        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -201,38 +152,15 @@
       <option name="presentableId" value="Default" />
       <updated>1572974616856</updated>
     </task>
+    <task id="LOCAL-00001" summary="Neural network classed added">
+      <created>1574630400341</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574630400341</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -240,12 +168,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -267,41 +189,8 @@
       </map>
     </option>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataFlow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Neural network classed added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neural network classed added" />
   </component>
 </project>

@@ -21,6 +21,7 @@ public class GameController implements Initializable, Runnable{
 
     @FXML
     private Pane gamePane;
+    private Score score;
     private Dinosaur player;
     private Obstacle obstacle;
     private Random random = new Random();
@@ -30,7 +31,7 @@ public class GameController implements Initializable, Runnable{
     private ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(2);
     private Thread ioThread = new Thread(() ->{
         while (true) {
-if(!dataReceiver.isEmpty()) {
+    if(!dataReceiver.isEmpty()) {
    NodeInput nodeInput = dataReceiver.getData();
     System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
           nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
@@ -41,12 +42,13 @@ if(!dataReceiver.isEmpty()) {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        score = new Score();
         player = new Dinosaur();
         //player.getView().setTranslateX(10.0);
        // player.getView().setTranslateY(311.0);
         gamePane.getChildren().add(player.getView());
 
+        gamePane.getChildren().add(score.getView());
       //  ImageView obstacleView = new ImageView(
        //         new Image(GameController.class.getResourceAsStream("/drawable/cactusSmall0000.png")));
         // Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
@@ -112,6 +114,7 @@ ioThread.start();
     private void onUpdate(){
         obstacle.update();
         player.update();
+        score.onUpdate(currentSpeed);
         speedUp();
         if(player.isColliding(obstacle))
 
@@ -152,14 +155,14 @@ ioThread.start();
     @Override
     public void run() {
         NodeInput nodeInput = new NodeInput();
-        nodeInput.setDistanceToNextObstacle(obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)));
+        nodeInput.setDistanceToNextObstacle(((obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/590);
 
        // nodeInput.setDistanceBetweenObstacles(obstacle.getView().getTranslateX());
         nodeInput.setPterodactylHeight((obstacle instanceof Pterodactyl?obstacle.getView().getTranslateY():0.0));
-     nodeInput.setHeightOfObstacle(obstacle.getHeight());
-        nodeInput.setWidthOfObstacle(obstacle.getWidth());
-        nodeInput.setPlayerYPosition(player.getView().getTranslateY());
-        nodeInput.setVelocity(this.currentSpeed);
+        nodeInput.setHeightOfObstacle(obstacle.getHeight()/50);
+        nodeInput.setWidthOfObstacle(obstacle.getWidth()/46);
+        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
+        nodeInput.setVelocity((this.currentSpeed-6)/14);
 
         nodeInput.setState(returnState());
         dataEmiter.emitData(nodeInput);

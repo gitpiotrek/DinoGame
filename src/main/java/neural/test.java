@@ -12,8 +12,6 @@ public class test {
     // dodac ustawianie wartosci wejsciowych
     nn.setInputs(inputValues);
     nn.train(values);
-    
-    nn.train(values2);
-    nn.train(values3);
+
     }
 }

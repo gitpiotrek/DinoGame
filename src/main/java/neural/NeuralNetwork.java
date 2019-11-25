@@ -82,6 +82,7 @@ public class NeuralNetwork {
         for(Neuron neuron: outputLayer){
             neuron.activationFunction();
             System.out.println("Output "+k+" value: "  + neuron.getOutputValue());
+            k++;
         }
 
     }
