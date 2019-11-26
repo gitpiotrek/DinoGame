@@ -39,6 +39,7 @@ public class GameController implements Initializable, Runnable{
     private List<Double> heightOfObstacle = new ArrayList<>();
     private List<Double> widthOfObstacle = new ArrayList<>();
     private List<Double> playerYPosition = new ArrayList<>();
+    private List<Double> pterodactylHeight = new ArrayList<>();
     private List<Double> velocity = new ArrayList<>();
     private List<State> state = new ArrayList<>();
     private int iterator=0;
@@ -48,12 +49,13 @@ public class GameController implements Initializable, Runnable{
         NodeInput nodeInput = dataReceiver.getData();
             System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
             nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
-            nodeInput.getVelocity() + " " + nodeInput.getState() );
+            nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() );
 
              distanceToNextObstacle.add(nodeInput.getDistanceToNextObstacle());
              heightOfObstacle.add(nodeInput.getHeightOfObstacle());
              widthOfObstacle.add(nodeInput.getWidthOfObstacle());
              playerYPosition.add(nodeInput.getPlayerYPosition());
+             pterodactylHeight.add(nodeInput.getPterodactylHeight());
              velocity.add(nodeInput.getVelocity());
              state.add(nodeInput.getState());
              if(iterator%30 == 29){
@@ -73,6 +75,7 @@ public class GameController implements Initializable, Runnable{
                  try {
                      csvWriter.flush();
                      csvWriter.close();
+
                  } catch (IOException e) {
                      e.printStackTrace();
                  }
@@ -90,7 +93,9 @@ public class GameController implements Initializable, Runnable{
         neuronTrainingData.add(widthOfObstacle);
         neuronTrainingData.add(playerYPosition);
         neuronTrainingData.add(velocity);
+        neuronTrainingData.add(pterodactylHeight);
         neuronTrainingData.add(state);
+
 
         score = new Score();
         player = new Dinosaur();
@@ -203,7 +208,7 @@ gamePane.setOnKeyReleased((event -> {
         nodeInput.setDistanceToNextObstacle(((obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
 
        // nodeInput.setDistanceBetweenObstacles(obstacle.getView().getTranslateX());
-        nodeInput.setPterodactylHeight((obstacle instanceof Pterodactyl?obstacle.getView().getTranslateY():0.0));
+        nodeInput.setPterodactylHeight(obstacle instanceof Pterodactyl?(1.0/3.0 + 1.0/3.0*(261-obstacle.getView().getTranslateY())/25.0):0.00);
         nodeInput.setHeightOfObstacle(obstacle.getHeight()/50);
         nodeInput.setWidthOfObstacle(obstacle.getWidth()/46);
         nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
