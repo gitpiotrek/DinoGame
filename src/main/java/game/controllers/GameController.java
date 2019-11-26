@@ -13,11 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -35,19 +34,64 @@ public class GameController implements Initializable, Runnable{
     private DataReceiver dataReceiver = new DataReceiver();
     private DataEmiter dataEmiter = new DataEmiter(dataReceiver);
     private ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(2);
+    private List<List> neuronTrainingData = new ArrayList<>();
+    private List<Double> distanceToNextObstacle = new ArrayList<>();
+    private List<Double> heightOfObstacle = new ArrayList<>();
+    private List<Double> widthOfObstacle = new ArrayList<>();
+    private List<Double> playerYPosition = new ArrayList<>();
+    private List<Double> velocity = new ArrayList<>();
+    private List<State> state = new ArrayList<>();
+    private int iterator=0;
     private Thread ioThread = new Thread(() ->{
         while (true) {
     if(!dataReceiver.isEmpty()) {
-   NodeInput nodeInput = dataReceiver.getData();
-    System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
-          nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
+        NodeInput nodeInput = dataReceiver.getData();
+            System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
+            nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
             nodeInput.getVelocity() + " " + nodeInput.getState() );
+
+             distanceToNextObstacle.add(nodeInput.getDistanceToNextObstacle());
+             heightOfObstacle.add(nodeInput.getHeightOfObstacle());
+             widthOfObstacle.add(nodeInput.getWidthOfObstacle());
+             playerYPosition.add(nodeInput.getPlayerYPosition());
+             velocity.add(nodeInput.getVelocity());
+             state.add(nodeInput.getState());
+             if(iterator%30 == 29){
+                 FileWriter csvWriter = null;
+                 try {
+                     csvWriter = new FileWriter("new.csv");
+                     for(int i=0;i<neuronTrainingData.get(0).size();i++) {
+                         for (List a : neuronTrainingData) {
+                             csvWriter.append(a.get(i) + ",");
+                         }
+                         csvWriter.append("\n");
+                     }
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
+
+                 try {
+                     csvWriter.flush();
+                     csvWriter.close();
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
+             }
+             iterator++;
 }
         }
     });
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        neuronTrainingData.add(distanceToNextObstacle);
+        neuronTrainingData.add(heightOfObstacle);
+        neuronTrainingData.add(widthOfObstacle);
+        neuronTrainingData.add(playerYPosition);
+        neuronTrainingData.add(velocity);
+        neuronTrainingData.add(state);
+
         score = new Score();
         player = new Dinosaur();
         endGame = new Label();
@@ -93,9 +137,6 @@ gamePane.setOnKeyReleased((event -> {
             }
         };
         timer.start();
-
-
-
         executorService.scheduleAtFixedRate(this,0,200, TimeUnit.MILLISECONDS);
         ioThread.setName("Thread for io calculation");
         ioThread.start();
@@ -118,25 +159,23 @@ gamePane.setOnKeyReleased((event -> {
         }
     }
      */
-
-
     private void onUpdate(){
         obstacle.update();
         player.update();
         score.onUpdate(currentSpeed);
         speedUp();
-        if(player.isColliding(obstacle))
-
-    {
-
-        timer.stop();
-        score.resetScore();
-        endGame.setVisible(true);
-
-
-        gamePane.setOnKeyPressed((e) -> {
+        if(player.isColliding(obstacle)) {
+            timer.stop();
+            executorService.shutdownNow();
+            ioThread.suspend();
+            score.resetScore();
+            endGame.setVisible(true);
+            gamePane.setOnKeyPressed((e) -> {
             if ((e.getCode() == KeyCode.SPACE)) {
                 timer.start();
+                executorService = new ScheduledThreadPoolExecutor(2);
+                executorService.scheduleAtFixedRate(this, 0, 200, TimeUnit.MILLISECONDS);
+                ioThread.resume();
                 obstacle.setAlive(false);
                 drawObsticle();
                 player.getView().setTranslateY(311.0);
@@ -161,13 +200,13 @@ gamePane.setOnKeyReleased((event -> {
     @Override
     public void run() {
         NodeInput nodeInput = new NodeInput();
-        nodeInput.setDistanceToNextObstacle(((obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/590);
+        nodeInput.setDistanceToNextObstacle(((obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
 
        // nodeInput.setDistanceBetweenObstacles(obstacle.getView().getTranslateX());
         nodeInput.setPterodactylHeight((obstacle instanceof Pterodactyl?obstacle.getView().getTranslateY():0.0));
         nodeInput.setHeightOfObstacle(obstacle.getHeight()/50);
         nodeInput.setWidthOfObstacle(obstacle.getWidth()/46);
-        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-380)/100);
+        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
         nodeInput.setVelocity((this.currentSpeed-6)/14);
 
         nodeInput.setState(returnState());
