@@ -1,5 +1,9 @@
 package neural;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +22,7 @@ public class NeuralNetwork {
     List<Neuron> hiddenLayer = new ArrayList<>();
     List<Neuron> outputLayer = new ArrayList<>();
     List<List<Synapse>> network = new ArrayList<List<Synapse>>();
-
+    private List<List> data;
 
     Neuron bias = new Neuron();
 
@@ -136,6 +140,22 @@ public class NeuralNetwork {
 
             }
         }
+    public void loadTrainData(){
+        String row;
+        String[] line= new String[7];
+        data = new ArrayList<>();
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("new.csv"));
+            while((row = br.readLine())!=null){
+                line = row.split(",");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
     }
 

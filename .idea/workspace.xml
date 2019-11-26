@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/new.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new.csv" beforeDir="false" afterPath="$PROJECT_DIR$/new.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574704538122</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Saving to file">
+      <created>1574729078401</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574729078401</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +206,7 @@
     <MESSAGE value="Changed obstacles spawn X position" />
     <MESSAGE value="After collision situation added" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="Saving to file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saving to file" />
   </component>
 </project>
