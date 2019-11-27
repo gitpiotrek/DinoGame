@@ -10,6 +10,20 @@ public class GameObject {
 
     private boolean alive = true;
 
+    public double getVelocity() {
+        return velocity;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    private boolean visible = true;
+
     public GameObject() {
     }
 
@@ -36,7 +50,7 @@ public class GameObject {
     }
 
     public boolean isAlive() {
-        if(this.view.getTranslateX() < 10){
+        if(this.view.getTranslateX() < -100){
             alive = false;
         }
         return alive;

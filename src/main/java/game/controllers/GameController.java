@@ -21,12 +21,12 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable, Runnable{
-
+//TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
     @FXML
     private Pane gamePane;
     private Score score;
     private Dinosaur player;
-    private Obstacle obstacle;
+    private List<Obstacle> obstacle = new ArrayList<>();
     private Label endGame;
     private  AnimationTimer timer;
     private Random random = new Random();
@@ -103,34 +103,19 @@ public class GameController implements Initializable, Runnable{
         endGame.setTranslateX(310);
         endGame.setTranslateY(190);
         endGame.setText("GAME OVER");
-        //player.getView().setTranslateX(10.0);
-       // player.getView().setTranslateY(311.0);
         gamePane.getChildren().add(player.getView());
-
         gamePane.getChildren().add(score.getView());
-
         gamePane.getChildren().add(endGame);
         endGame.setVisible(false);
 
-      //  ImageView obstacleView = new ImageView(
-       //         new Image(GameController.class.getResourceAsStream("/drawable/cactusSmall0000.png")));
-        // Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
-        // obstacleView.setViewport(viewportRect);
-
-       // obstacle = new Obstacle(obstacleView);
-      //  obstacle.getView().setTranslateX(590.0);
-       // obstacle.getView().setTranslateY(311.0);
-        obstacle = new  CactusSmall();
-        gamePane.getChildren().add(obstacle.getView());
-
-
+        obstacle.add(new  CactusSmall());
+        gamePane.getChildren().add(obstacle.get(0).getView());
         gamePane.requestFocus();
         setSpaceOnKeyPressed();
-
-gamePane.setOnKeyReleased((event -> {
-    if(((event.getCode() == KeyCode.DOWN) || (event.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
-        System.out.println("key released");
-        player.notDuck();
+        gamePane.setOnKeyReleased((event -> {
+            if(((event.getCode() == KeyCode.DOWN) || (event.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
+            System.out.println("key released");
+            player.notDuck();
     }
 }));
 
@@ -147,57 +132,85 @@ gamePane.setOnKeyReleased((event -> {
         ioThread.start();
     }
 
-    /*
-        private static class Player extends GameObject {
-            boolean jumping = false;
-            boolean up = false;
-            Player() {
-                super(new ImageView(new Image(GameController.class.getResourceAsStream("/drawable/dino0000.png"))));
-            }
-        }
-
-     */
-    /*
-    private static class Obstacle extends GameObject {
-        Obstacle(ImageView imageView) {
-            super(imageView);
-        }
-    }
-     */
     private void onUpdate(){
-        obstacle.update();
+
+        for(Obstacle o: obstacle){
+            o.update();
+        }
         player.update();
         score.onUpdate(currentSpeed);
         speedUp();
-        if(player.isColliding(obstacle)) {
-            timer.stop();
-            executorService.shutdownNow();
-            ioThread.suspend();
-            score.resetScore();
-            endGame.setVisible(true);
-            gamePane.setOnKeyPressed((e) -> {
-            if ((e.getCode() == KeyCode.SPACE)) {
-                timer.start();
-                executorService = new ScheduledThreadPoolExecutor(2);
-                executorService.scheduleAtFixedRate(this, 0, 200, TimeUnit.MILLISECONDS);
-                ioThread.resume();
-                obstacle.setAlive(false);
-                drawObsticle();
-                player.getView().setTranslateY(311.0);
-                endGame.setVisible(false);
-                setSpaceOnKeyPressed();
-            }
-            else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
-            }
-        });
-        //System.out.println("EndGame");
-    }
+
+
+
+        if(obstacle.get(0).isAlive()){
+                if(player.isColliding(obstacle.get(0))) {
+                    timer.stop();
+                    executorService.shutdownNow();
+                    ioThread.suspend();
+                    score.resetScore();
+                    endGame.setVisible(true);
+                    gamePane.setOnKeyPressed((e) -> {
+                        if ((e.getCode() == KeyCode.SPACE)) {
+
+                            for(Obstacle o: obstacle){
+                                gamePane.getChildren().remove(o.getView());
+                            }
+                            obstacle.clear();
+                            obstacle.add(new CactusSmall());
+                            gamePane.getChildren().add(obstacle.get(0).getView());
+                            player.getView().setTranslateY(311.0);
+                            endGame.setVisible(false);
+                            timer.start();
+                            executorService = new ScheduledThreadPoolExecutor(2);
+                            executorService.scheduleAtFixedRate(this, 0, 200, TimeUnit.MILLISECONDS);
+                            ioThread.resume();
+                            setSpaceOnKeyPressed();
+                }});}
+        }else{
+            if(player.isColliding(obstacle.get(1))) {
+                timer.stop();
+                executorService.shutdownNow();
+                ioThread.suspend();
+                score.resetScore();
+                endGame.setVisible(true);
+                gamePane.setOnKeyPressed((e) -> {
+                    if ((e.getCode() == KeyCode.SPACE)) {
+                        for(Obstacle o: obstacle){
+                            gamePane.getChildren().remove(o.getView());
+                        }
+                        obstacle.clear();
+                        obstacle.add(new CactusSmall());
+                        gamePane.getChildren().add(obstacle.get(0).getView());
+                        player.getView().setTranslateY(311.0);
+                        endGame.setVisible(false);
+                        timer.start();
+                        executorService = new ScheduledThreadPoolExecutor(2);
+                        executorService.scheduleAtFixedRate(this, 0, 200, TimeUnit.MILLISECONDS);
+                        ioThread.resume();
+                        setSpaceOnKeyPressed();
+                    }});}
+
+        }
+
+        if(obstacle.get(0).getView().getTranslateX()<10){
+            obstacle.get(0).setAlive(false);
+        }
+        if(obstacle.get(0).getView().getTranslateX()<= -100){
+            obstacle.get(0).setVisible(false);
+        }
+
+        if(!obstacle.get(0).isVisible()){
+            gamePane.getChildren().remove(obstacle.get(0).getView());
+            obstacle.remove(0);
+        }
+
         drawObsticle();
-        if(player.isJumping())
-    {
-        player.jumping();
+        if(player.isJumping()) {
+            player.jumping();
+        }
     }
-    }
+
     private void speedUp(){
         currentSpeed += PhysicAbstraction.ACCELERATION;
     }
@@ -205,12 +218,22 @@ gamePane.setOnKeyReleased((event -> {
     @Override
     public void run() {
         NodeInput nodeInput = new NodeInput();
-        nodeInput.setDistanceToNextObstacle(((obstacle.getView().getTranslateX() - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
+        double x;
+        double y;
 
+        if(obstacle.get(0).getView().getTranslateX() > 10){
+            x = obstacle.get(0).getView().getTranslateX();
+            y = obstacle.get(0).getView().getTranslateY();
+        }else {
+            x = obstacle.get(1).getView().getTranslateX();
+            y = obstacle.get(1).getView().getTranslateY();
+        }
+
+        nodeInput.setDistanceToNextObstacle(((x - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
        // nodeInput.setDistanceBetweenObstacles(obstacle.getView().getTranslateX());
-        nodeInput.setPterodactylHeight(obstacle instanceof Pterodactyl?(1.0/3.0 + 1.0/3.0*(261-obstacle.getView().getTranslateY())/25.0):0.00);
-        nodeInput.setHeightOfObstacle(obstacle.getHeight()/50);
-        nodeInput.setWidthOfObstacle(obstacle.getWidth()/46);
+        nodeInput.setPterodactylHeight(obstacle instanceof Pterodactyl?(1.0/3.0 + 1.0/3.0*(261-y)/25.0):0.00);
+        nodeInput.setHeightOfObstacle(obstacle.get(0).getHeight()/50);
+        nodeInput.setWidthOfObstacle(obstacle.get(0).getWidth()/46);
         nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
         nodeInput.setVelocity((this.currentSpeed-6)/14);
 
@@ -228,28 +251,42 @@ gamePane.setOnKeyReleased((event -> {
         }else {return State.RUN;}
     }
     public void drawObsticle(){
-        if(!obstacle.isAlive()) {
-            gamePane.getChildren().remove(obstacle.getView());
-            //  System.out.println("Current speed is: " + currentSpeed);
-            int obstacleNumber = random.nextInt(3);
-            switch (obstacleNumber){
-                case 0:
-                    obstacle = new CactusSmall();
-                    break;
-                case 1:
-                    obstacle = new CactusBig();
-                    break;
-                default:
-                    obstacle = new Pterodactyl();
-                    break;
-            }
-            // obstacle = new Obstacle(obstacleView);
-            //obstacle.getView().setTranslateX(590.0);
-            //obstacle.getView().setTranslateY(311.0);
-            obstacle.setVelocity(currentSpeed);
-            gamePane.getChildren().add(obstacle.getView());
+            if(obstacle.isEmpty() || (!obstacle.get(0).isAlive() && obstacle.size() == 1)){
+                    int obstacleNumber = random.nextInt(3);
+                    switch (obstacleNumber){
+                        case 0:
+                            obstacle.add(new CactusSmall());
+                            break;
+                        case 1:
+                            obstacle.add(new CactusBig());
+                            break;
+                        default:
+                            obstacle.add(new Pterodactyl());
+                            break;
+                    }
+            gamePane.getChildren().add(obstacle.get(obstacle.size()-1).getView());
+        }else if (700-obstacle.get(obstacle.size()-1).getView().getTranslateX() > obstacle.get(obstacle.size()-1).getMinGap()){
+                if(random.nextInt(100)<1){
 
-        }}
+                    int obstacleNumber = random.nextInt(3);
+                    switch (obstacleNumber){
+                        case 0:
+                            obstacle.add(new CactusSmall());
+                            break;
+                        case 1:
+                            obstacle.add(new CactusBig());
+                            break;
+                        default:
+                            obstacle.add(new Pterodactyl());
+                            break;
+                    }
+                    gamePane.getChildren().add(obstacle.get(obstacle.size()-1).getView());
+                }
+
+
+            }
+       }
+
     public void setSpaceOnKeyPressed(){
         gamePane.setOnKeyPressed((e) -> {
             if ((e.getCode() == KeyCode.SPACE) && (player.isJumping() == false)) {
