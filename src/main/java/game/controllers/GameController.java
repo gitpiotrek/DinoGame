@@ -10,13 +10,19 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +49,10 @@ public class GameController implements Initializable, Runnable{
     private List<Double> velocity = new ArrayList<>();
     private List<State> state = new ArrayList<>();
     private int iterator=0;
+    private Font font;
+    private ImageView replayImageView;
+    private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
+            ,36.0,32.0,true,false);
     private Thread ioThread = new Thread(() ->{
         while (true) {
     if(!dataReceiver.isEmpty()) {
@@ -95,18 +105,27 @@ public class GameController implements Initializable, Runnable{
         neuronTrainingData.add(velocity);
         neuronTrainingData.add(pterodactylHeight);
         neuronTrainingData.add(state);
+        InputStream stream = this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf");
+        font = Font.loadFont(stream, 28.0);
 
 
         score = new Score();
         player = new Dinosaur();
         endGame = new Label();
-        endGame.setTranslateX(310);
-        endGame.setTranslateY(190);
+        endGame.setTranslateX(230);
+        endGame.setTranslateY(150);
         endGame.setText("GAME OVER");
+        endGame.setFont(font);
         gamePane.getChildren().add(player.getView());
         gamePane.getChildren().add(score.getView());
         gamePane.getChildren().add(endGame);
         endGame.setVisible(false);
+        replayImageView = new ImageView();
+        gamePane.getChildren().add(replayImageView);
+        replayImageView.setTranslateY(220);
+        replayImageView.setTranslateX(332);
+        replayImageView.setImage(replayImage);
+        replayImageView.setVisible(false);
 
         obstacle.add(new  CactusSmall());
         gamePane.getChildren().add(obstacle.get(0).getView());
@@ -145,6 +164,7 @@ public class GameController implements Initializable, Runnable{
 
         if(obstacle.get(0).isAlive()){
                 if(player.isColliding(obstacle.get(0))) {
+                    replayImageView.setVisible(true);
                     timer.stop();
                     executorService.shutdownNow();
                     ioThread.suspend();
@@ -153,7 +173,7 @@ public class GameController implements Initializable, Runnable{
                     player.die();
                     gamePane.setOnKeyPressed((e) -> {
                         if ((e.getCode() == KeyCode.SPACE)) {
-
+                            replayImageView.setVisible(false);
                             for(Obstacle o: obstacle){
                                 gamePane.getChildren().remove(o.getView());
                             }
@@ -171,6 +191,7 @@ public class GameController implements Initializable, Runnable{
                 }});}
         }else{
             if(player.isColliding(obstacle.get(1))) {
+                replayImageView.setVisible(true);
                 timer.stop();
                 executorService.shutdownNow();
                 ioThread.suspend();
@@ -179,6 +200,7 @@ public class GameController implements Initializable, Runnable{
                 player.die();
                 gamePane.setOnKeyPressed((e) -> {
                     if ((e.getCode() == KeyCode.SPACE)) {
+                        replayImageView.setVisible(false);
                         for(Obstacle o: obstacle){
                             gamePane.getChildren().remove(o.getView());
                         }

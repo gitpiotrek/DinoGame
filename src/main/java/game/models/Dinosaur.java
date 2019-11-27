@@ -170,7 +170,4 @@ public void jumping(){
         this.setView(animateMovement);
     }
 
-    public void smallJump() {
-
-        }
 }

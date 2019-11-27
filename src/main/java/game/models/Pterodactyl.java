@@ -25,7 +25,7 @@ public class Pterodactyl extends Obstacle {
        this.setView(obstacleView);
        obstacleView.setImage(pterodactylUp);
        this.getView().setTranslateX(746.0 );
-       this.getView().setTranslateY(311.0 - (double) selectYPos());
+       this.getView().setTranslateY(343.0 - (double) selectYPos());
 
    }
 
@@ -56,7 +56,7 @@ public class Pterodactyl extends Obstacle {
               y = 100;
                 break;
             case 1:
-                y = 75;
+                y = 70;
                 break;
             default:
                 y = 50;
