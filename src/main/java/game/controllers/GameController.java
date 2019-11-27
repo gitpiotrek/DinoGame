@@ -159,7 +159,7 @@ public class GameController implements Initializable, Runnable{
                             obstacle.clear();
                             obstacle.add(new CactusSmall());
                             gamePane.getChildren().add(obstacle.get(0).getView());
-                            player.getView().setTranslateY(311.0);
+                            player.getView().setTranslateY(299.0);
                             endGame.setVisible(false);
                             timer.start();
                             executorService = new ScheduledThreadPoolExecutor(2);
@@ -182,7 +182,7 @@ public class GameController implements Initializable, Runnable{
                         obstacle.clear();
                         obstacle.add(new CactusSmall());
                         gamePane.getChildren().add(obstacle.get(0).getView());
-                        player.getView().setTranslateY(311.0);
+                        player.getView().setTranslateY(299.0);
                         endGame.setVisible(false);
                         timer.start();
                         executorService = new ScheduledThreadPoolExecutor(2);

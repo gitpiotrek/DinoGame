@@ -37,7 +37,7 @@ private double jumpSpeed = 4.0;
         animateMovement.setImage(leftLeg);
         this.setView(animateMovement);
         this.getView().setTranslateX(10.0);
-        this.getView().setTranslateY(311.0);
+        this.getView().setTranslateY(299.0);
     }
 /**
  * old jumping method
@@ -78,7 +78,7 @@ public void jumping(){
             this.getView().setTranslateY(this.getView().getTranslateY() - jumpSpeed);
             jumpSpeed -= GRAVITY;
 
-        if ((this.getView().getTranslateY() >= 311.0) && jumpSpeed < 0.0) {
+        if ((this.getView().getTranslateY() >= 299.0) && jumpSpeed < 0.0) {
             this.jumping = false;
             jumpSpeed = 4.0;
             update();
@@ -137,10 +137,14 @@ public void jumping(){
 
     public void duck(){
         this.duck = true;
-        this.getView().setTranslateY(341.0);
+        animateMovement.setImage(duckLeftLeg);
+        this.setView(animateMovement);
+        this.getView().setTranslateY(321.0);
     }
     public void notDuck(){
         this.duck = false;
-        this.getView().setTranslateY(311.0);
+        animateMovement.setImage(leftLeg);
+        this.setView(animateMovement);
+        this.getView().setTranslateY(299.0);
     }
 }
