@@ -150,12 +150,14 @@ public class GameController implements Initializable, Runnable{
                     ioThread.suspend();
                     score.resetScore();
                     endGame.setVisible(true);
+                    player.die();
                     gamePane.setOnKeyPressed((e) -> {
                         if ((e.getCode() == KeyCode.SPACE)) {
 
                             for(Obstacle o: obstacle){
                                 gamePane.getChildren().remove(o.getView());
                             }
+                            currentSpeed = 6;
                             obstacle.clear();
                             obstacle.add(new CactusSmall());
                             gamePane.getChildren().add(obstacle.get(0).getView());
@@ -174,11 +176,13 @@ public class GameController implements Initializable, Runnable{
                 ioThread.suspend();
                 score.resetScore();
                 endGame.setVisible(true);
+                player.die();
                 gamePane.setOnKeyPressed((e) -> {
                     if ((e.getCode() == KeyCode.SPACE)) {
                         for(Obstacle o: obstacle){
                             gamePane.getChildren().remove(o.getView());
                         }
+                        currentSpeed = 6;
                         obstacle.clear();
                         obstacle.add(new CactusSmall());
                         gamePane.getChildren().add(obstacle.get(0).getView());
@@ -213,6 +217,9 @@ public class GameController implements Initializable, Runnable{
 
     private void speedUp(){
         currentSpeed += PhysicAbstraction.ACCELERATION;
+        for(Obstacle obstacle: obstacle){
+            obstacle.setVelocity(currentSpeed);
+        }
     }
 
     @Override
@@ -294,6 +301,8 @@ public class GameController implements Initializable, Runnable{
             }
             else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
                 player.duck();
+            }else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == true)){
+                player.setSmallJumping(true);
             }
         });
     }

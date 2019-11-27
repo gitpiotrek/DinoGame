@@ -23,12 +23,20 @@ public class Dinosaur extends GameObject{
             ,59.0,25.0,true,false);
     private Image duckRightLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinoduckleft.png")
             ,59.0,25.0,true,false);
-
+    private Image dead = new Image(GameController.class.getResourceAsStream("/drawable/dinoDead0000.png")
+            ,44.0,47.0,true,false);
     private int floatingTime = 8;
     private int runningTime = 25;
     private int xPos;
     private int yPos;
-private double jumpSpeed = 4.0;
+private double jumpSpeed = 9;
+
+    public void setSmallJumping(boolean smallJumping) {
+        this.smallJumping = smallJumping;
+    }
+
+    private boolean smallJumping;
+
     public Dinosaur(Node view) {
         super(view);
     }
@@ -76,17 +84,27 @@ public void jumping(){
 
          */
             this.getView().setTranslateY(this.getView().getTranslateY() - jumpSpeed);
-            jumpSpeed -= GRAVITY;
+            if(isSmallJumping()){
+                jumpSpeed = -10;
+            }else{
+                jumpSpeed -= GRAVITY;
+            }
+
 
         if ((this.getView().getTranslateY() >= 299.0) && jumpSpeed < 0.0) {
             this.jumping = false;
-            jumpSpeed = 4.0;
+            setSmallJumping(false);
+            jumpSpeed = 9;
             update();
         }
     }
 }
 
-// cos działa xD
+    private boolean isSmallJumping() {
+        return this.smallJumping;
+    }
+
+    // cos działa xD
     @Override
     public void update(){
         if(!jumping && !duck) {
@@ -147,4 +165,12 @@ public void jumping(){
         this.setView(animateMovement);
         this.getView().setTranslateY(299.0);
     }
+    public void die(){
+        animateMovement.setImage(dead);
+        this.setView(animateMovement);
+    }
+
+    public void smallJump() {
+
+        }
 }
