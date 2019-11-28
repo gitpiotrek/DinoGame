@@ -49,6 +49,7 @@ public class GameController implements Initializable, Runnable{
     private List<Double> velocity = new ArrayList<>();
     private List<State> state = new ArrayList<>();
     private int iterator=0;
+    private List<Cloud> clouds = new ArrayList<>();
     private Font font;
     private ImageView replayImageView;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
@@ -108,7 +109,6 @@ public class GameController implements Initializable, Runnable{
         InputStream stream = this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf");
         font = Font.loadFont(stream, 28.0);
 
-
         score = new Score();
         player = new Dinosaur();
         endGame = new Label();
@@ -128,6 +128,8 @@ public class GameController implements Initializable, Runnable{
         replayImageView.setVisible(false);
 
         obstacle.add(new  CactusSmall());
+        clouds.add(new Cloud());
+        gamePane.getChildren().add(clouds.get(0).getView());
         gamePane.getChildren().add(obstacle.get(0).getView());
         gamePane.requestFocus();
         setSpaceOnKeyPressed();
@@ -155,6 +157,9 @@ public class GameController implements Initializable, Runnable{
 
         for(Obstacle o: obstacle){
             o.update();
+        }
+        for(Cloud cloud: clouds){
+            cloud.update();
         }
         player.update();
         score.onUpdate(currentSpeed);
@@ -230,11 +235,29 @@ public class GameController implements Initializable, Runnable{
             gamePane.getChildren().remove(obstacle.get(0).getView());
             obstacle.remove(0);
         }
-
+        if(!clouds.get(0).isVisible()){
+            gamePane.getChildren().remove(clouds.get(0).getView());
+            clouds.remove(0);
+        }
+        drawCloud();
         drawObsticle();
+
         if(player.isJumping()) {
             player.jumping();
         }
+    }
+
+    private void drawCloud() {
+    if(clouds.get(clouds.size()-1).getView().getTranslateX() < 680){
+        if(random.nextInt(100)<1){
+            clouds.add(new Cloud());
+            gamePane.getChildren().add(clouds.get(clouds.size()-1).getView());
+            gamePane.getChildren().remove(player.getView());
+            gamePane.getChildren().add(player.getView());
+        }
+
+
+    }
     }
 
     private void speedUp(){
