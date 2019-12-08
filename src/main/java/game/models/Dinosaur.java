@@ -4,13 +4,13 @@ import game.controllers.GameController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static game.models.PhysicAbstraction.GRAVITY;
+import javafx.scene.shape.Rectangle;
+
 
 public class Dinosaur extends GameObject{
 
     private boolean jumping = false;
     private boolean duck = false;
-    //flag for animate running dinosaur
     private boolean runningLeg = false;
    private ImageView animateMovement = new ImageView();
    private Image leftLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinorunleft.png")
@@ -25,10 +25,8 @@ public class Dinosaur extends GameObject{
             ,59.0,25.0,true,false);
     private Image dead = new Image(GameController.class.getResourceAsStream("/drawable/dinoDead0000.png")
             ,44.0,47.0,true,false);
-    private int floatingTime = 8;
+
     private int runningTime = 25;
-    private int xPos;
-    private int yPos;
 private double jumpSpeed = 9;
 
     public void setSmallJumping(boolean smallJumping) {
@@ -36,6 +34,8 @@ private double jumpSpeed = 9;
     }
 
     private boolean smallJumping;
+
+    private Rectangle[] collisionBoxes;
 
     public Dinosaur(Node view) {
         super(view);
@@ -46,6 +46,17 @@ private double jumpSpeed = 9;
         this.setView(animateMovement);
         this.getView().setTranslateX(10.0);
         this.getView().setTranslateY(299.0);
+        this.getView().toFront();
+
+        collisionBoxes = new Rectangle[]{
+                new Rectangle(this.getView().getTranslateX(),
+                        this.getView().getTranslateY(),
+                        30.0,47.0),
+                new Rectangle(this.getView().getTranslateX()+30.0,
+                        this.getView().getTranslateY(),
+                        14.0,23.0)
+        };
+
     }
 /**
  * old jumping method
@@ -85,9 +96,9 @@ public void jumping(){
          */
             this.getView().setTranslateY(this.getView().getTranslateY() - jumpSpeed);
             if(isSmallJumping()){
-                jumpSpeed = -10;
+                jumpSpeed = PhysicAbstraction.INITIAL_JUMP_VELOCITY;
             }else{
-                jumpSpeed -= GRAVITY;
+                jumpSpeed -= PhysicAbstraction.GRAVITY;
             }
 
 
@@ -107,6 +118,14 @@ public void jumping(){
     // cos działa xD
     @Override
     public void update(){
+        collisionBoxes = new Rectangle[]{
+                new Rectangle(this.getView().getTranslateX(),
+                        this.getView().getTranslateY(),
+                        25.0,47.0),
+                new Rectangle(this.getView().getTranslateX()+25.0,
+                        this.getView().getTranslateY(),
+                        10.0,17.0)
+        };
         if(!jumping && !duck) {
             if(runningTime == 0) {
                 if (runningLeg) {
@@ -170,4 +189,18 @@ public void jumping(){
         this.setView(animateMovement);
     }
 
+    //skrypt w lniach ok 1700 - 1850 są collisionbox-y
+@Override
+public boolean isColliding(GameObject other){
+    if(!this.isDucking()){
+        for (Rectangle collisionBox : collisionBoxes){
+          if(collisionBox.getBoundsInParent().intersects(other.getView().getBoundsInParent())){
+            return true;
+          }
+        }
+        return false;
+    }else {
+        return getView().getBoundsInParent().intersects(other.getView().getBoundsInParent());
+    }
+}
 }

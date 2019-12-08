@@ -1,5 +1,7 @@
 package neural;
 
+import game.models.GameState;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -82,11 +84,11 @@ public class NeuralNetwork {
             }
         }
 
-        int k = 0;
+     //   int k = 0;
         for(Neuron neuron: outputLayer){
             neuron.activationFunction();
-            System.out.println("Output "+k+" value: "  + neuron.getOutputValue());
-            k++;
+           // System.out.println("Output "+k+" value: "  + neuron.getOutputValue());
+          //  k++;
         }
 
     }
@@ -140,6 +142,7 @@ public class NeuralNetwork {
 
             }
         }
+
     public void loadTrainData(){
         String row;
         String[] line= new String[7];
@@ -157,5 +160,33 @@ public class NeuralNetwork {
         }
 
     }
+/*
+    public void loadTrainData(File file){
+        String row;
+        String[] line= new String[7];
+        double[] inputData = new double[6];
+        data = new ArrayList<>();
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(file));
+            while((row = br.readLine())!=null){
+                line = row.split(",");
+                for(int i = 0; i< inputData.length; i++){
+                    inputData[i] = Double.parseDouble(line[i]);
+                }
+                trainForOneInput(inputData, line[6]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//potem zapisz wagi gdzies do pliku żeby muc z nich odtworzyc siec neuronową
+    }
+
+    private void trainForOneInput(double[] inputData, String output){
+        //tu sie ma trenowac
+    }
+    */
     }
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.192" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="game.controllers.MenuController">
+   <children>
+      <Button fx:id="playButton" layoutX="194.0" layoutY="96.0" mnemonicParsing="false" onAction="#playAction" prefHeight="51.0" prefWidth="312.0" text="Play !" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="54.0" text="Dino Game" textAlignment="CENTER" />
+      <Button fx:id="chooseRunResultFileButton" layoutX="350.0" layoutY="171.0" mnemonicParsing="false" onAction="#chooseRunResultFileAction" prefHeight="42.0" prefWidth="153.0" text="Choose run result file" />
+      <Button fx:id="exitButton" layoutX="526.0" layoutY="339.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="42.0" prefWidth="142.0" text="Exit" />
+      <Button fx:id="teachButton" layoutX="24.0" layoutY="169.0" mnemonicParsing="false" onAction="#teachAction" prefHeight="42.0" prefWidth="153.0" text="Teach your Dino" />
+      <Button fx:id="chooseNeuralNetworkFileButton" layoutX="350.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseNeuralNetworkFileAction" prefHeight="42.0" prefWidth="153.0" text="Choose neural network" />
+      <Button fx:id="showResultButton" layoutX="24.0" layoutY="297.0" mnemonicParsing="false" onAction="#showResultAction" prefHeight="42.0" prefWidth="153.0" text="Show result" />
+      <Button fx:id="generateButton" layoutX="24.0" layoutY="233.0" mnemonicParsing="false" onAction="#generateNeuralNetworkAction" prefHeight="42.0" prefWidth="153.0" text="Generate neural network" />
+      <Label fx:id="neuralFileLabel"  layoutX="526.0" layoutY="246.0" prefHeight="17.0" prefWidth="142.0" text="No file selected" />
+      <Label fx:id="runFileLabel" layoutX="526.0" layoutY="183.0" prefHeight="17.0" prefWidth="142.0" text="No file selected" />
+      <TextField fx:id="playerNameTextField" layoutX="194.0" layoutY="178.0" prefHeight="25.0" prefWidth="142.0" promptText="Enter your name" />
+   </children>
+</Pane>

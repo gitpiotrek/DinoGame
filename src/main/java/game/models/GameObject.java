@@ -49,7 +49,7 @@ public class GameObject {
     }
 
     public boolean isAlive() {
-        if(this.view.getTranslateX() < -100){
+        if(this.view.getTranslateX() <= -75.0){
             alive = false;
         }
         return alive;
@@ -73,7 +73,20 @@ public class GameObject {
         setVelocity(new Point2D(Math.cos(Math.toRadians(getRotate())), Math.sin(Math.toRadians(getRotate()))));
     }
 */
+
     public boolean isColliding(GameObject other) {
         return getView().getBoundsInParent().intersects(other.getView().getBoundsInParent());
     }
+
+
+//zajebiste rozwiązanie problemu z za dużym tłem obietów
+    /*
+public boolean isColliding(GameObject other) {
+    return getView().getBoundsInParent().intersects(other.getView().getTranslateX()+2,
+            other.getView().getTranslateY()+2,
+            other.getView().getBoundsInParent().getWidth()+4 ,
+            other.getView().getBoundsInParent().getHeight()-2);
+}
+
+     */
 }

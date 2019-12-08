@@ -66,9 +66,9 @@ public class Pterodactyl extends Obstacle {
     }
     public void initializeImages(){
         obstacleView = new ImageView();
-        pterodactylUp = new Image(this.getClass().getResourceAsStream("/drawable/berdUp.png")
+        pterodactylUp = new Image(this.getClass().getResourceAsStream("/drawable/pterodactylUp.png")
                 ,this.getWidth(),this.getHeight(),true,false);
-        pterodactylDown = new Image(this.getClass().getResourceAsStream("/drawable/berdDown.png")
+        pterodactylDown = new Image(this.getClass().getResourceAsStream("/drawable/pterodactylDown.png")
                 ,this.getWidth(),this.getHeight(),true,false);
     }
 }

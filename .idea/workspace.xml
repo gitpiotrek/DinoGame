@@ -2,23 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Stone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/pterodactylDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/pterodactylUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new.csv" beforeDir="false" afterPath="$PROJECT_DIR$/new.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataEmitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/berdDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/berdUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataEmiter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/berdDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/drawable/berdUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/PhysicAbstraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/PhysicAbstraction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/neural/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/Neuron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/GameView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +65,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -55,23 +79,24 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574896924863" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/drawable" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Filip\Desktop\Git\DinoGame\src\main\resources\drawable" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Filip\Desktop\DinoGame\src\main\java\neural" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
+      <recent name="C:\Users\Filip\Desktop\DinoGame\src\main\java\neural" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Filip\Desktop\Git\DinoGame\src\main\resources\drawable" />
     </key>
   </component>
   <component name="RunDashboard">

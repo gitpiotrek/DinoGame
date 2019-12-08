@@ -15,6 +15,7 @@ public class Cloud extends GameObject{
         this.setView(cloudView);
         this.cloudView.setImage(cloudImage);
         this.getView().setTranslateX(750.0);
+        this.getView().toBack();
         Random random = new Random();
         //losowanie wysokosci;
         int y=random.nextInt(120);

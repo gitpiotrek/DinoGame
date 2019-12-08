@@ -1,11 +1,11 @@
 package ai.communication;
 
-public class DataEmiter {
+public class DataEmitter {
     private DataFlow dataFlow;
 
-    public DataEmiter(){}
+    public DataEmitter(){}
 
-    public DataEmiter(DataFlow dataFlow){
+    public DataEmitter(DataFlow dataFlow){
         this.dataFlow = dataFlow;
     }
 
