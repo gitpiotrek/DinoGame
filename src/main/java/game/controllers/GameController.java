@@ -27,7 +27,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable, Runnable{
-//TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
     @FXML
     private Pane gamePane;
     private Score score;
@@ -52,6 +51,7 @@ public class GameController implements Initializable, Runnable{
     private List<Cloud> clouds = new ArrayList<>();
     private Font font;
     private ImageView replayImageView;
+    private Class obstycleClass;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
             ,36.0,32.0,true,false);
     private Thread ioThread = new Thread(() ->{
@@ -60,7 +60,7 @@ public class GameController implements Initializable, Runnable{
         NodeInput nodeInput = dataReceiver.getData();
             System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
             nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
-            nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() );
+            nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() + " " + nodeInput.getDistanceBetweenObstacles());
 
              distanceToNextObstacle.add(nodeInput.getDistanceToNextObstacle());
              heightOfObstacle.add(nodeInput.getHeightOfObstacle());
@@ -276,17 +276,19 @@ public class GameController implements Initializable, Runnable{
         if(obstacle.get(0).getView().getTranslateX() > 10){
             x = obstacle.get(0).getView().getTranslateX();
             y = obstacle.get(0).getView().getTranslateY();
+            obstycleClass = obstacle.get(0).getClass();
         }else {
             x = obstacle.get(1).getView().getTranslateX();
             y = obstacle.get(1).getView().getTranslateY();
+            obstycleClass = obstacle.get(1).getClass();
         }
 
         nodeInput.setDistanceToNextObstacle(((x - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
-       // nodeInput.setDistanceBetweenObstacles(obstacle.getView().getTranslateX());
-        nodeInput.setPterodactylHeight(obstacle instanceof Pterodactyl?(1.0/3.0 + 1.0/3.0*(261-y)/25.0):0.00);
+        nodeInput.setDistanceBetweenObstacles(obstacle.get(0).isAlive() && obstacle.size() >1 ?(obstacle.get(1).getView().getTranslateX() - obstacle.get(0).getView().getTranslateX())/740:(!obstacle.get(0).isAlive() && obstacle.size() >2?(obstacle.get(2).getView().getTranslateX() - obstacle.get(1).getView().getTranslateX())/740:1.0));
+        nodeInput.setPterodactylHeight(obstycleClass == Pterodactyl.class?(1.0/3.0 + 1.0/3.0*(293-y)/25.0):0.00);
         nodeInput.setHeightOfObstacle(obstacle.get(0).getHeight()/50);
-        nodeInput.setWidthOfObstacle(obstacle.get(0).getWidth()/46);
-        nodeInput.setPlayerYPosition((player.getView().getTranslateY()-220)/100);
+        nodeInput.setWidthOfObstacle((obstacle.get(0).getWidth()-17)/75);
+        nodeInput.setPlayerYPosition((346-player.getView().getTranslateY())/160);
         nodeInput.setVelocity((this.currentSpeed-6)/14);
 
         nodeInput.setState(returnState());
