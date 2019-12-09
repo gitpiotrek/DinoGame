@@ -1,5 +1,7 @@
 package neural;
 
+import ai.communication.State;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,6 +17,15 @@ public class NeuralNetwork {
     //Speed
     //Players Y position
     //Gap between obstacles
+    private List<List> neuronTrainingData = new ArrayList<>();
+    private List<Double> distanceToNextObstacle = new ArrayList<>();
+    private List<Double> heightOfObstacle = new ArrayList<>();
+    private List<Double> widthOfObstacle = new ArrayList<>();
+    private List<Double> playerYPosition = new ArrayList<>();
+    private List<Double> velocity = new ArrayList<>();
+    private List<Double> pterodactylHeight = new ArrayList<>();
+    private List<Double> distanceBetweenObstacles = new ArrayList<>();
+    private List<State> state = new ArrayList<>();
 
     List<Synapse> firstLayerSynapses = new ArrayList<>();
     List<Synapse> secondLayerSynapses = new ArrayList<>();
@@ -29,6 +40,14 @@ public class NeuralNetwork {
 
 
     public void initializeNetwork(int inputLayerSize, int hiddenLayerSize, int outputLayerSize){
+        neuronTrainingData.add(distanceToNextObstacle);
+        neuronTrainingData.add(heightOfObstacle);
+        neuronTrainingData.add(widthOfObstacle);
+        neuronTrainingData.add(playerYPosition);
+        neuronTrainingData.add(velocity);
+        neuronTrainingData.add(pterodactylHeight);
+        neuronTrainingData.add(distanceBetweenObstacles);
+        neuronTrainingData.add(state);
 
         bias.setInputValue(1);
 
@@ -73,7 +92,7 @@ public class NeuralNetwork {
         s.transferValue();
     }
 
-    public void forwardPropagation(){
+    public int forwardPropagation(){
 
 
         for(List<Synapse> e:network){
@@ -89,8 +108,21 @@ public class NeuralNetwork {
             k++;
         }
 
+        return getMaxiumumOutputIndex();
+
     }
-    public void setInputs(double[] inputs){
+    public int getMaxiumumOutputIndex(){
+        if(outputLayer.get(0).getOutputValue()>outputLayer.get(1).getOutputValue() && outputLayer.get(0).getOutputValue() > outputLayer.get(2).getOutputValue()){
+                return 0;
+        }else if(outputLayer.get(1).getOutputValue()>outputLayer.get(0).getOutputValue() && outputLayer.get(1).getOutputValue() > outputLayer.get(2).getOutputValue()){
+                return 1;
+        }else if(outputLayer.get(2).getOutputValue()>outputLayer.get(1).getOutputValue() && outputLayer.get(2).getOutputValue() > outputLayer.get(0).getOutputValue()){
+                return 2;
+        }else{
+            return 4;
+        }
+    }
+    public void setInputs(Double[] inputs){
         int i=0;
         for(Neuron neuron: inputLayer){
             neuron.setInputValue(inputs[i]);
@@ -121,34 +153,52 @@ public class NeuralNetwork {
             }
         }
     }
-    public void train(double[] values){
-        boolean more = true;
-        while(true) {
-
-                if (outputLayer.get(0).getOutputValue() > (values[0]-0.05) &&outputLayer.get(0).getOutputValue() < (values[0]
-                +0.05)
-                && outputLayer.get(1).getOutputValue() > (values[1]-0.05) &&outputLayer.get(1).getOutputValue() < (values[1]
-                        +0.05)
-                && outputLayer.get(2).getOutputValue() > (values[2]-0.05) &&outputLayer.get(2).getOutputValue() < (values[2]
-                        +0.05)
-                ){
-                   break;
-                }else{
-                    forwardPropagation();
-                    backPropagation(values);
-                }
-
+    public void train(){
+        Double[] values = new Double[neuronTrainingData.get(0).size()-1];
+        boolean changed = true;
+        int index;
+        int random = (int)Math.random()*neuronTrainingData.get(0).size();
+        int iter = 0;
+        int MAX_ITERS = 100000 ;
+        while(changed && iter < MAX_ITERS){
+            changed = false;
+        for(int i=0;i<neuronTrainingData.get(0).size() ;i++) {
+            for (int k = 0; k < neuronTrainingData.size() - 1; k++) {
+                values[k] = (Double) neuronTrainingData.get(k).get(i % neuronTrainingData.get(0).size());
             }
+            setInputs(values);
+            forwardPropagation();
+            if (("RUN".equals((String) neuronTrainingData.get(7).get(i % neuronTrainingData.get(0).size()))) && (outputLayer.get(0).getOutputValue() < outputLayer.get(1).getOutputValue() || outputLayer.get(0).getOutputValue() < outputLayer.get(2).getOutputValue())) {
+                backPropagation(new double[]{1.0, 0, 0});
+                changed = true;
+            } else if (("JUMP".equals((String) neuronTrainingData.get(7).get(i % neuronTrainingData.get(0).size()))) && (outputLayer.get(1).getOutputValue() < outputLayer.get(0).getOutputValue() || outputLayer.get(1).getOutputValue() < outputLayer.get(2).getOutputValue())) {
+                backPropagation(new double[]{0, 1.0, 0});
+                changed = true;
+            } else if (("DUCK".equals((String) neuronTrainingData.get(7).get(i % neuronTrainingData.get(0).size()))) && (outputLayer.get(2).getOutputValue() < outputLayer.get(0).getOutputValue() || outputLayer.get(2).getOutputValue() < outputLayer.get(1).getOutputValue())) {
+                backPropagation(new double[]{0, 0, 1.0});
+                changed = true;
+            }
+            iter++;
+        }
+        }
         }
     public void loadTrainData(){
         String row;
-        String[] line= new String[7];
+        String[] line= new String[8];
         data = new ArrayList<>();
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader("new.csv"));
+            int k=0;
             while((row = br.readLine())!=null){
                 line = row.split(",");
+                for(int i=0;i<line.length;i++){
+                    if(i!=7){
+                        neuronTrainingData.get(i).add(Double.parseDouble(line[i]));
+                    }else
+                        neuronTrainingData.get(7).add(line[7]);
+                }
+                k++;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

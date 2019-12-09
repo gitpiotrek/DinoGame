@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import neural.NeuralNetwork;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -45,12 +46,14 @@ public class GameController implements Initializable, Runnable{
     private List<Double> widthOfObstacle = new ArrayList<>();
     private List<Double> playerYPosition = new ArrayList<>();
     private List<Double> pterodactylHeight = new ArrayList<>();
+    private List<Double> distanceBetweenObstacles = new ArrayList<>();
     private List<Double> velocity = new ArrayList<>();
     private List<State> state = new ArrayList<>();
     private int iterator=0;
     private List<Cloud> clouds = new ArrayList<>();
     private Font font;
     private ImageView replayImageView;
+    private NeuralNetwork nn;
     private Class obstycleClass;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
             ,36.0,32.0,true,false);
@@ -58,9 +61,20 @@ public class GameController implements Initializable, Runnable{
         while (true) {
     if(!dataReceiver.isEmpty()) {
         NodeInput nodeInput = dataReceiver.getData();
-            System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
+           /* System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
             nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
-            nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() + " " + nodeInput.getDistanceBetweenObstacles());
+            nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() + " " + nodeInput.getDistanceBetweenObstacles()); */
+         nn.setInputs(new Double[]{nodeInput.getDistanceToNextObstacle(), nodeInput.getHeightOfObstacle(), nodeInput.getWidthOfObstacle(), nodeInput.getPlayerYPosition()
+           ,nodeInput.getPterodactylHeight(), nodeInput.getVelocity(), nodeInput.getDistanceBetweenObstacles()});
+          int index =  nn.forwardPropagation();
+            if(index == 1){
+                player.jump();
+            }else if(index == 2){
+                player.duck();
+            }
+        System.out.println("Index: "+ index);
+
+
 
              distanceToNextObstacle.add(nodeInput.getDistanceToNextObstacle());
              heightOfObstacle.add(nodeInput.getHeightOfObstacle());
@@ -68,11 +82,12 @@ public class GameController implements Initializable, Runnable{
              playerYPosition.add(nodeInput.getPlayerYPosition());
              pterodactylHeight.add(nodeInput.getPterodactylHeight());
              velocity.add(nodeInput.getVelocity());
+             distanceBetweenObstacles.add(nodeInput.getDistanceBetweenObstacles());
              state.add(nodeInput.getState());
-             if(iterator%30 == 29){
+               /* if(iterator%30 == 29){
                  FileWriter csvWriter = null;
                  try {
-                     csvWriter = new FileWriter("new.csv");
+                    csvWriter = new FileWriter("new.csv");
                      for(int i=0;i<neuronTrainingData.get(0).size();i++) {
                          for (List a : neuronTrainingData) {
                              csvWriter.append(a.get(i) + ",");
@@ -90,14 +105,20 @@ public class GameController implements Initializable, Runnable{
                  } catch (IOException e) {
                      e.printStackTrace();
                  }
-             }
+             } */
              iterator++;
 }
-        }
+}
+
+
     });
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        nn = new NeuralNetwork();
+        nn.initializeNetwork(7,6,3);
+        nn.loadTrainData();
+        nn.train();
 
         neuronTrainingData.add(distanceToNextObstacle);
         neuronTrainingData.add(heightOfObstacle);
@@ -105,6 +126,7 @@ public class GameController implements Initializable, Runnable{
         neuronTrainingData.add(playerYPosition);
         neuronTrainingData.add(velocity);
         neuronTrainingData.add(pterodactylHeight);
+        neuronTrainingData.add(distanceBetweenObstacles);
         neuronTrainingData.add(state);
         InputStream stream = this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf");
         font = Font.loadFont(stream, 28.0);
@@ -148,7 +170,7 @@ public class GameController implements Initializable, Runnable{
             }
         };
         timer.start();
-        executorService.scheduleAtFixedRate(this,0,200, TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(this,0,1000/60, TimeUnit.MILLISECONDS);
         ioThread.setName("Thread for io calculation");
         ioThread.start();
     }
@@ -290,8 +312,8 @@ public class GameController implements Initializable, Runnable{
         nodeInput.setWidthOfObstacle((obstacle.get(0).getWidth()-17)/75);
         nodeInput.setPlayerYPosition((346-player.getView().getTranslateY())/160);
         nodeInput.setVelocity((this.currentSpeed-6)/14);
-
         nodeInput.setState(returnState());
+
         dataEmiter.emitData(nodeInput);
     }
 
