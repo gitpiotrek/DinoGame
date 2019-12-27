@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/DinoGame.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new.csv" beforeDir="false" afterPath="$PROJECT_DIR$/new.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
@@ -15,9 +16,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/neural/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/Neuron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/neural/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neural/Synapse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/Synapse.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,18 +77,6 @@
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\java" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Application.MainGameStarter">
     <configuration name="MainGameStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.MainGameStarter" />
@@ -126,6 +114,18 @@
         <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -275,29 +275,41 @@
     <option name="LAST_COMMIT_MESSAGE" value="Small jump added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575834028630">
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575920721941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575834028630" />
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575920721941" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575840175767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575840175767" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1575841548653">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1577452095513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575841548653" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1575841548653">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1577452095513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575841548653" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1575841548653">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1577452095513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575841548653" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1575841548653">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1577452095513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575841548653" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog" timestamp="1577447552705">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577447552705" />
+    <state x="-1526" y="98" width="1056" height="720" maximized="true" key="dock-window-1" timestamp="1577447767594">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1526" y="98" width="1056" height="720" maximized="true" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577447767594" />
+    <state x="-1738" y="0" width="1056" height="720" maximized="true" key="dock-window-2" timestamp="1577448127652">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1738" y="0" width="1056" height="720" maximized="true" key="dock-window-2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577448127652" />
   </component>
 </project>

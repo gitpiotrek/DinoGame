@@ -104,7 +104,7 @@ public class NeuralNetwork {
         int k = 0;
         for(Neuron neuron: outputLayer){
             neuron.activationFunction();
-            System.out.println("Output "+k+" value: "  + neuron.getOutputValue());
+         //    System.out.println("Output "+k+" value: "  + neuron.getOutputValue());
             k++;
         }
 
@@ -156,11 +156,11 @@ public class NeuralNetwork {
     public void train(){
         Double[] values = new Double[neuronTrainingData.get(0).size()-1];
         boolean changed = true;
-        int index;
-        int random = (int)Math.random()*neuronTrainingData.get(0).size();
         int iter = 0;
-        int MAX_ITERS = 100000 ;
+        int MAX_ITERS = 100000000 ;
+        int numberOfChanged;
         while(changed && iter < MAX_ITERS){
+            numberOfChanged =0;
             changed = false;
         for(int i=0;i<neuronTrainingData.get(0).size() ;i++) {
             for (int k = 0; k < neuronTrainingData.size() - 1; k++) {
@@ -177,9 +177,12 @@ public class NeuralNetwork {
             } else if (("DUCK".equals((String) neuronTrainingData.get(7).get(i % neuronTrainingData.get(0).size()))) && (outputLayer.get(2).getOutputValue() < outputLayer.get(0).getOutputValue() || outputLayer.get(2).getOutputValue() < outputLayer.get(1).getOutputValue())) {
                 backPropagation(new double[]{0, 0, 1.0});
                 changed = true;
+            }else{
+                numberOfChanged++;
             }
             iter++;
         }
+            System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
         }
         }
     public void loadTrainData(){

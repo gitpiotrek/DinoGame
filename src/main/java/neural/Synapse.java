@@ -48,6 +48,6 @@ public class Synapse {
     }
 
     public void updateWeightValue(){
-    weight=weight + 0.4 * receiverNeuron.getDelta()* senderNeuron.getOutputValue();
+    weight=weight + 0.1 * receiverNeuron.getDelta()* senderNeuron.getOutputValue();
     }
 }
