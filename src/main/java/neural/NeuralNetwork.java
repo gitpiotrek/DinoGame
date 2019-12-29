@@ -49,7 +49,7 @@ public class NeuralNetwork {
         neuronTrainingData.add(distanceBetweenObstacles);
         neuronTrainingData.add(state);
 
-        bias.setInputValue(1);
+
 
         for(int i=0;i<inputLayerSize;i++){
             inputLayer.add(new Neuron());
@@ -60,8 +60,8 @@ public class NeuralNetwork {
         for(int i=0;i<outputLayerSize;i++){
             outputLayer.add(new Neuron());
         }
-        hiddenLayer.add(bias);
-        outputLayer.add(bias);
+
+        inputLayer.add(bias);
         Synapse temp;
         for(Neuron n:inputLayer){
             for(Neuron k:hiddenLayer){
@@ -71,6 +71,7 @@ public class NeuralNetwork {
                 k.addInputSynapse(temp);
             }
         }
+        hiddenLayer.add(bias);
         for(Neuron n:hiddenLayer){
             for(Neuron k:outputLayer){
                 temp =  new Synapse(n,k);
@@ -81,7 +82,7 @@ public class NeuralNetwork {
         }
         outputLayer.get(outputLayer.size()-1).deltaHiddenLayer();
         hiddenLayer.get(hiddenLayer.size()-1).deltaHiddenLayer();
-
+        // dlaczego?
 
         network.add(firstLayerSynapses);
         network.add(secondLayerSynapses);
@@ -124,8 +125,11 @@ public class NeuralNetwork {
     }
     public void setInputs(Double[] inputs){
         int i=0;
+        bias.setOutputValue(1);
         for(Neuron neuron: inputLayer){
-            neuron.setInputValue(inputs[i]);
+            if(i<inputLayer.size()-1) {
+                neuron.setInputValue(inputs[i]);
+            }
             i++;
         }
     }
@@ -157,7 +161,7 @@ public class NeuralNetwork {
         Double[] values = new Double[neuronTrainingData.get(0).size()-1];
         boolean changed = true;
         int iter = 0;
-        int MAX_ITERS = 100000000 ;
+        int MAX_ITERS = 1000000000;
         int numberOfChanged;
         while(changed && iter < MAX_ITERS){
             numberOfChanged =0;
@@ -183,6 +187,11 @@ public class NeuralNetwork {
             iter++;
         }
             System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
+           /* for(Synapse synapse:inputLayer.get(0).getOutputSynapses()){
+                System.out.println(synapse.getWeight());
+            }
+            */
+            System.out.println(inputLayer.get(inputLayer.size()-1).getOutputValue());
         }
         }
     public void loadTrainData(){

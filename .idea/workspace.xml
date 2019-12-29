@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/DinoGame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new.csv" beforeDir="false" afterPath="$PROJECT_DIR$/new.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/NeuralNetwork.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/neural/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/Neuron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/neural/Synapse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neural/Synapse.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574892232358</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Small jump added">
+      <created>1577452458236</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577452458236</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -279,30 +277,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575920721941" />
+    <state x="614" y="115" key="CommitChangelistDialog2" timestamp="1577452456873">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="614" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452456873" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575840175767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575840175767" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1577452095513">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1577646051697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1577452095513">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1577646051697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1577452095513">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1577646051697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1577452095513">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1577646051697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452095513" />
-    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog" timestamp="1577447552705">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog" timestamp="1577638529119">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577447552705" />
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577638529119" />
     <state x="-1526" y="98" width="1056" height="720" maximized="true" key="dock-window-1" timestamp="1577447767594">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>

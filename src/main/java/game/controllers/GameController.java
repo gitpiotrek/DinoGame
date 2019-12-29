@@ -67,11 +67,11 @@ public class GameController implements Initializable, Runnable{
          nn.setInputs(new Double[]{nodeInput.getDistanceToNextObstacle(), nodeInput.getHeightOfObstacle(), nodeInput.getWidthOfObstacle(), nodeInput.getPlayerYPosition()
            ,nodeInput.getPterodactylHeight(), nodeInput.getVelocity(), nodeInput.getDistanceBetweenObstacles()});
           int index =  nn.forwardPropagation();
-         /*  if(index == 1){
+           if(index == 1){
                 player.jump();
             }else if(index == 2){
                 player.duck();
-            } */
+            }
 
 
 
@@ -85,7 +85,7 @@ public class GameController implements Initializable, Runnable{
              velocity.add(nodeInput.getVelocity());
              distanceBetweenObstacles.add(nodeInput.getDistanceBetweenObstacles());
              state.add(nodeInput.getState());
-             if(iterator%30 == 29){
+             /*if(iterator%30 == 29){
                  FileWriter csvWriter = null;
                  try {
                     csvWriter = new FileWriter("new.csv", true);
@@ -106,7 +106,7 @@ public class GameController implements Initializable, Runnable{
                  } catch (IOException e) {
                      e.printStackTrace();
                  }
-             }
+             } */
              iterator++;
 }
 }
@@ -117,9 +117,9 @@ public class GameController implements Initializable, Runnable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nn = new NeuralNetwork();
-        nn.initializeNetwork(7,8,3);
-       // nn.loadTrainData();
-       // nn.train();
+        nn.initializeNetwork(7,6,3);
+        nn.loadTrainData();
+        nn.train();
 
         neuronTrainingData.add(distanceToNextObstacle);
         neuronTrainingData.add(heightOfObstacle);
@@ -171,9 +171,10 @@ public class GameController implements Initializable, Runnable{
             }
         };
         timer.start();
-        executorService.scheduleAtFixedRate(this,0,1000/60, TimeUnit.MILLISECONDS);
         ioThread.setName("Thread for io calculation");
         ioThread.start();
+        executorService.scheduleAtFixedRate(this,0,1000/60, TimeUnit.MILLISECONDS);
+
     }
 
     private void onUpdate(){
