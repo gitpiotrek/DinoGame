@@ -66,12 +66,13 @@ public class GameController implements Initializable, Runnable{
             nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() + " " + nodeInput.getDistanceBetweenObstacles()); */
          nn.setInputs(new Double[]{nodeInput.getDistanceToNextObstacle(), nodeInput.getHeightOfObstacle(), nodeInput.getWidthOfObstacle(), nodeInput.getPlayerYPosition()
            ,nodeInput.getPterodactylHeight(), nodeInput.getVelocity(), nodeInput.getDistanceBetweenObstacles()});
-          int index =  nn.forwardPropagation();
+         int index =  nn.forwardPropagation();
            if(index == 1){
                 player.jump();
             }else if(index == 2){
                 player.duck();
             }
+
 
 
 
@@ -85,7 +86,7 @@ public class GameController implements Initializable, Runnable{
              velocity.add(nodeInput.getVelocity());
              distanceBetweenObstacles.add(nodeInput.getDistanceBetweenObstacles());
              state.add(nodeInput.getState());
-             /*if(iterator%30 == 29){
+            /* if(iterator%30 == 29){
                  FileWriter csvWriter = null;
                  try {
                     csvWriter = new FileWriter("new.csv", true);
@@ -117,7 +118,7 @@ public class GameController implements Initializable, Runnable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nn = new NeuralNetwork();
-        nn.initializeNetwork(7,6,3);
+        nn.initializeNetwork(7,8,3);
         nn.loadTrainData();
         nn.train();
 
