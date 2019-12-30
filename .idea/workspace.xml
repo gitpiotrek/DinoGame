@@ -37,6 +37,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1TCqqYfALXat3bSa4Up2U8lkJoi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -277,34 +278,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575920721941" />
-    <state x="614" y="115" key="CommitChangelistDialog2" timestamp="1577452456873">
+    <state x="614" y="115" key="CommitChangelistDialog2" timestamp="1577648486284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577452456873" />
+    <state x="614" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577648486284" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575840175767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575840175767" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1577646051697">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1577648486792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1577646051697">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577648486792" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1577648486792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1577646051697">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577648486792" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1577648486792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1577646051697">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577648486792" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1577648486792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577646051697" />
-    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog" timestamp="1577638529119">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577648486792" />
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog" timestamp="1577725970339">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577638529119" />
+    <state x="-938" y="216" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577725970339" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577725968394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1577725968394" />
     <state x="-1526" y="98" width="1056" height="720" maximized="true" key="dock-window-1" timestamp="1577447767594">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
