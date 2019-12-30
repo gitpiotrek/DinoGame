@@ -2,11 +2,9 @@ package neural;
 
 import ai.communication.State;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class NeuralNetwork {
@@ -35,7 +33,8 @@ public class NeuralNetwork {
     List<List<Synapse>> network = new ArrayList<List<Synapse>>();
     private List<List> data;
 
-    Neuron bias = new Neuron();
+    Neuron biasInputLayer = new Neuron();
+    Neuron biasHiddenLayer = new Neuron();
 
 
 
@@ -61,7 +60,7 @@ public class NeuralNetwork {
             outputLayer.add(new Neuron());
         }
 
-        inputLayer.add(bias);
+        inputLayer.add(biasInputLayer);
         Synapse temp;
         for(Neuron n:inputLayer){
             for(Neuron k:hiddenLayer){
@@ -71,7 +70,7 @@ public class NeuralNetwork {
                 k.addInputSynapse(temp);
             }
         }
-        hiddenLayer.add(bias);
+        hiddenLayer.add(biasHiddenLayer);
         for(Neuron n:hiddenLayer){
             for(Neuron k:outputLayer){
                 temp =  new Synapse(n,k);
@@ -80,8 +79,10 @@ public class NeuralNetwork {
                 k.addInputSynapse(temp);
             }
         }
-        outputLayer.get(outputLayer.size()-1).deltaHiddenLayer();
-        hiddenLayer.get(hiddenLayer.size()-1).deltaHiddenLayer();
+        biasInputLayer.setOutputValue(1);
+        biasHiddenLayer.setOutputValue(1);
+        //outputLayer.get(outputLayer.size()-1).deltaHiddenLayer();
+        //hiddenLayer.get(hiddenLayer.size()-1).deltaHiddenLayer();
         // dlaczego?
 
         network.add(firstLayerSynapses);
@@ -89,7 +90,9 @@ public class NeuralNetwork {
 
     }
     public void transferValueFromSenderNeutron(Synapse s){
-        s.getSenderNeuron().activationFunction();
+        if(s.getSenderNeuron() != biasInputLayer && s.getSenderNeuron() != biasHiddenLayer){
+            s.getSenderNeuron().activationFunction();
+        }
         s.transferValue();
     }
 
@@ -125,7 +128,6 @@ public class NeuralNetwork {
     }
     public void setInputs(Double[] inputs){
         int i=0;
-        bias.setOutputValue(1);
         for(Neuron neuron: inputLayer){
             if(i<inputLayer.size()-1) {
                 neuron.setInputValue(inputs[i]);
@@ -136,20 +138,19 @@ public class NeuralNetwork {
 
     public void backPropagation(double[] values){
 
-        for(int i=0;i<outputLayer.size()-1;i++){
+        for(int i=0;i<outputLayer.size();i++){
             outputLayer.get(i).deltaOutputLayer(values[i]);
         }
         for(Neuron neuron: hiddenLayer){
             neuron.deltaHiddenLayer();
         }
-        /*
+
         for(Neuron neuron: inputLayer){
             neuron.deltaHiddenLayer();
         }
-        *
-         */
 
-        bias.deltaHiddenLayer();
+
+        //bias.deltaHiddenLayer();
 
         for(List<Synapse> e:network){
             for(Synapse s: e){
@@ -158,14 +159,36 @@ public class NeuralNetwork {
         }
     }
     public void train(){
+        //prepareData();
+        FileWriter csvWriter = null;
+        try {
+            csvWriter = new FileWriter("new.csv", false);
+            for(int i=0;i<neuronTrainingData.get(0).size();i++) {
+                for (List a : neuronTrainingData) {
+                    csvWriter.write(a.get(i) + ",");
+                }
+                csvWriter.append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            csvWriter.flush();
+            csvWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Double[] values = new Double[neuronTrainingData.get(0).size()-1];
         boolean changed = true;
         int iter = 0;
-        int MAX_ITERS = 1000000000;
-        int numberOfChanged;
-        while(changed && iter < MAX_ITERS){
+        int MAX_ITERS = 10000000;
+        int numberOfChanged = 0;
+        while(changed && iter < MAX_ITERS || numberOfChanged > 3710){
             numberOfChanged =0;
             changed = false;
+            //shuffleData();
         for(int i=0;i<neuronTrainingData.get(0).size() ;i++) {
             for (int k = 0; k < neuronTrainingData.size() - 1; k++) {
                 values[k] = (Double) neuronTrainingData.get(k).get(i % neuronTrainingData.get(0).size());
@@ -186,13 +209,13 @@ public class NeuralNetwork {
             }
             iter++;
         }
-            System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
+
            /* for(Synapse synapse:inputLayer.get(0).getOutputSynapses()){
                 System.out.println(synapse.getWeight());
             }
             */
-            System.out.println(inputLayer.get(inputLayer.size()-1).getOutputValue());
         }
+        System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
         }
     public void loadTrainData(){
         String row;
@@ -219,5 +242,48 @@ public class NeuralNetwork {
         }
 
     }
-    }
+    public void prepareData(){
+        for(int i=0;i<neuronTrainingData.get(0).size();i++){
+            for(int k=i+1;k<neuronTrainingData.get(0).size();k++){
+                    if(     neuronTrainingData.get(0).get(i).equals(neuronTrainingData.get(0).get(k)) &&
+                            neuronTrainingData.get(1).get(i).equals(neuronTrainingData.get(1).get(k)) &&
+                            neuronTrainingData.get(2).get(i).equals(neuronTrainingData.get(2).get(k)) &&
+                            neuronTrainingData.get(3).get(i).equals(neuronTrainingData.get(3).get(k)) &&
+                            neuronTrainingData.get(4).get(i).equals(neuronTrainingData.get(4).get(k)) &&
+                            neuronTrainingData.get(5).get(i).equals(neuronTrainingData.get(5).get(k)) &&
+                            neuronTrainingData.get(6).get(i).equals(neuronTrainingData.get(6).get(k)) &&
+                            neuronTrainingData.get(7).get(i).equals(neuronTrainingData.get(7).get(k))
+                    ){
 
+                        neuronTrainingData.get(0).remove(k);
+                        neuronTrainingData.get(1).remove(k);
+                        neuronTrainingData.get(2).remove(k);
+                        neuronTrainingData.get(3).remove(k);
+                        neuronTrainingData.get(4).remove(k);
+                        neuronTrainingData.get(5).remove(k);
+                        neuronTrainingData.get(6).remove(k);
+                        neuronTrainingData.get(7).remove(k);
+
+                        k--;
+                        System.out.println("Removed: "+k);
+                    }
+
+            }
+        }
+
+    }
+    public void shuffleData(){
+        Object temp;
+        int random;
+        for(int i=0;i<neuronTrainingData.size()/2;i++){
+            random = (int) Math.random()*neuronTrainingData.size();
+            for(List l:neuronTrainingData){
+                temp = l.get(random);
+                l.remove(random);
+                l.add(temp);
+            }
+
+        }
+
+    }
+    }
