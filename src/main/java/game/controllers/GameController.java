@@ -118,7 +118,7 @@ public class GameController implements Initializable, Runnable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nn = new NeuralNetwork();
-        nn.initializeNetwork(7,8,3);
+        nn.initializeNetwork(7,6,3);
         nn.loadTrainData();
         nn.train();
 

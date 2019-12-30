@@ -5,7 +5,7 @@ public class Synapse {
     private double value =-2;
     private Neuron senderNeuron;
     private Neuron receiverNeuron;
-    private double weight=Math.random()*6-3;
+    private double weight=Math.random()*2-1;
 
     public double getValue() {
         return value;

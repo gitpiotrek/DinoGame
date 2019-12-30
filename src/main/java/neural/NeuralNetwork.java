@@ -183,12 +183,12 @@ public class NeuralNetwork {
         Double[] values = new Double[neuronTrainingData.get(0).size()-1];
         boolean changed = true;
         int iter = 0;
-        int MAX_ITERS = 10000000;
+        int MAX_ITERS = 1000000000;
         int numberOfChanged = 0;
-        while(changed && iter < MAX_ITERS || numberOfChanged > 3710){
+        while(changed && iter < MAX_ITERS || numberOfChanged < 14610){
             numberOfChanged =0;
             changed = false;
-            //shuffleData();
+            shuffleData();
         for(int i=0;i<neuronTrainingData.get(0).size() ;i++) {
             for (int k = 0; k < neuronTrainingData.size() - 1; k++) {
                 values[k] = (Double) neuronTrainingData.get(k).get(i % neuronTrainingData.get(0).size());
@@ -214,8 +214,9 @@ public class NeuralNetwork {
                 System.out.println(synapse.getWeight());
             }
             */
+            System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
         }
-        System.out.println("["+numberOfChanged+"/"+neuronTrainingData.get(0).size()+"]");
+
         }
     public void loadTrainData(){
         String row;
