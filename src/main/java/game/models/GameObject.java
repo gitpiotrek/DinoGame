@@ -2,6 +2,7 @@ package game.models;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.scene.shape.Shape;
 
 public class GameObject {
     private Node view;
@@ -73,11 +74,11 @@ public class GameObject {
         setVelocity(new Point2D(Math.cos(Math.toRadians(getRotate())), Math.sin(Math.toRadians(getRotate()))));
     }
 */
-
+/*
     public boolean isColliding(GameObject other) {
         return getView().getBoundsInParent().intersects(other.getView().getBoundsInParent());
     }
-
+*/
 
 //zajebiste rozwiązanie problemu z za dużym tłem obietów
     /*
@@ -89,4 +90,5 @@ public boolean isColliding(GameObject other) {
 }
 
      */
+
 }

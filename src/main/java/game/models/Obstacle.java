@@ -1,8 +1,10 @@
 package game.models;
 
 import javafx.scene.Node;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
-public class Obstacle extends GameObject{
+public class Obstacle extends GameObject implements Collideable{
     private double  width;
     private double height;
     private int xPos;
@@ -20,8 +22,6 @@ public class Obstacle extends GameObject{
         this.yPos = yPos;
         this.minGap = minGap;
     }
-
-
 
     public double getWidth() {
         return width;
@@ -63,4 +63,8 @@ public class Obstacle extends GameObject{
         this.minGap = minGap;
     }
 
+    @Override
+    public Rectangle[] collisionArea() {
+        return new Rectangle[0];
+    }
 }

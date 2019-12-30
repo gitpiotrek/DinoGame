@@ -22,12 +22,12 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +42,12 @@ public class GameController implements Initializable, Runnable{
     private LinkedBlockingDeque<Obstacle> obstacles;
     private Label endGame;
     private AnimationTimer timer;
+    private ImageView track = new ImageView(new Image(this.getClass().getResourceAsStream("/drawable/route.png")
+            ,  600.0, 12.0, true, false));
+    private ImageView trackTwo = new ImageView(new Image(this.getClass().getResourceAsStream("/drawable/route.png")
+            ,  600.0, 12.0, true, false));
+
+   private LinkedBlockingQueue<ImageView>  trackQueue  =  new LinkedBlockingQueue<>();
 
     private  File file = null;
     private Random random = new Random();
@@ -64,14 +70,17 @@ public class GameController implements Initializable, Runnable{
     private ImageView replayImageView;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
             ,36.0,32.0,true,false);
-    Label menuLabel;
-    FileWriter  csvWriter = null;
+
+   private Label menuLabel;
+   private FileWriter  csvWriter = null;
   //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
       //      ,36.0,32.0,true,false);
 
     private Thread ioThread;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
 
         currentSpeed = 6;
         obstacles  = new LinkedBlockingDeque<>();
@@ -94,6 +103,23 @@ public class GameController implements Initializable, Runnable{
         endGame.setTranslateY(150);
         endGame.setText("GAME OVER");
         endGame.setFont(font);
+
+        track.setTranslateX(0.0);
+        track.setTranslateY(346.0);
+       track.toBack();
+        trackTwo.setTranslateX(600.0);
+        trackTwo.setTranslateY(346.0);
+       trackTwo.toBack();
+
+        try {
+            trackQueue.put(trackTwo);
+            trackQueue.put(track);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        gamePane.getChildren().addAll(track, trackTwo);
+
         gamePane.getChildren().add(player.getView());
         gamePane.getChildren().add(score.getView());
         gamePane.getChildren().add(endGame);
@@ -123,8 +149,6 @@ public class GameController implements Initializable, Runnable{
 
         setSpaceOnKeyPressed();
 
-
-
 //Threads
  timer = new AnimationTimer(){
             @Override
@@ -139,7 +163,7 @@ public class GameController implements Initializable, Runnable{
                 break;
             case TRAIN:
                 executorService = new ScheduledThreadPoolExecutor(2);
-                executorService.scheduleAtFixedRate(this, 0, 200, TimeUnit.MILLISECONDS);
+                executorService.scheduleAtFixedRate(this, 0, 1000/60, TimeUnit.MILLISECONDS);
 
                 //ioThread.setName("Thread for io calculation");
                 ioThread = new Thread(() ->{
@@ -208,7 +232,7 @@ public class GameController implements Initializable, Runnable{
         }
         */
 
-
+        animateTrack(currentSpeed);
         drawCloud();
         drawObstacles();
 
@@ -232,7 +256,6 @@ public class GameController implements Initializable, Runnable{
 
                     //poprawic
                     menuLabel.setVisible(true);
-
 
                     switch (MainGameStarter.gameState){
                         case PLAY:
@@ -321,6 +344,29 @@ public class GameController implements Initializable, Runnable{
         }
     }
 
+private void animateTrack(double currentSpeed){
+        track.setTranslateX(track.getTranslateX() - currentSpeed);
+        trackTwo.setTranslateX(trackTwo.getTranslateX() - currentSpeed);
+        /*
+        if(trackQueue.peek().getTranslateX() <= (-600.0)){
+
+         ImageView switchTrack = trackQueue.poll();
+         switchTrack.setTranslateX(600.0);
+            trackQueue.peek().setTranslateX(0);
+            try {
+                trackQueue.put(switchTrack);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+         */
+        if(track.getTranslateX() <= -550.0){
+            track.setTranslateX(600.0);
+    }
+    if(trackTwo.getTranslateX() <= -550.0){
+        trackTwo.setTranslateX(600.0);
+    }
+}
     @Override
     public void run() {
         NodeInput nodeInput = new NodeInput();

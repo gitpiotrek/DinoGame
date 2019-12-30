@@ -3,6 +3,9 @@ package game.models;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 import java.util.Random;
 
@@ -10,41 +13,46 @@ public class Pterodactyl extends Obstacle {
     private Random random = new Random();
 
     private ImageView obstacleView = new ImageView();
-    private Image pterodactylUp;
-    private Image pterodactylDown;
+    private static Image pterodactylUp = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactylUp.png")
+            ,46.0,40.0,true,false);
+    private static Image pterodactylDown = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactylDown.png")
+                ,46.0,40.0,true,false);
+
+    private Rectangle[] collisionBoxes;
+
    public Pterodactyl(Node view, double width, double height, int xPos, int yPos, int minGap) {
        super(view, width, height, xPos, yPos, minGap);
    }
+
    private int runningTime = 20;
    private boolean runningLeg = false;
    public Pterodactyl(){
        this.setMinGap(150);
        this.setWidth(46.0);
        this.setHeight(40.0);
-       initializeImages();
        this.setView(obstacleView);
-       obstacleView.setImage(pterodactylUp);
        this.getView().setTranslateX(746.0 );
        this.getView().setTranslateY(343.0 - (double) selectYPos());
-
+       obstacleView.setImage(pterodactylUp);
+       collisionBoxes = collisionBoxesForPterodacty(this.getView().getTranslateX(),this.getView().getTranslateY());
    }
 
    @Override
    public void update(){
        if(runningTime == 0) {
            if (runningLeg) {
-               // this.setView(leftLeg);
                obstacleView.setImage(pterodactylUp);
                runningLeg = false;
            } else {
-               //  this.setView(rightLeg);
                obstacleView.setImage(pterodactylDown);
+
                runningLeg = true;
            }
            runningTime = 20;
        }else {
            --runningTime;
        }
+       collisionBoxes = collisionBoxesForPterodacty(this.getView().getTranslateX(),this.getView().getTranslateY());
        super.update();
    }
 
@@ -64,11 +72,20 @@ public class Pterodactyl extends Obstacle {
         }
         return y;
     }
-    public void initializeImages(){
-        obstacleView = new ImageView();
-        pterodactylUp = new Image(this.getClass().getResourceAsStream("/drawable/pterodactylUp.png")
-                ,this.getWidth(),this.getHeight(),true,false);
-        pterodactylDown = new Image(this.getClass().getResourceAsStream("/drawable/pterodactylDown.png")
-                ,this.getWidth(),this.getHeight(),true,false);
+
+    @Override
+    public Rectangle[] collisionArea() { return collisionBoxes; }
+
+    private Rectangle[] collisionBoxesForPterodacty(double posX, double posY){
+        return new Rectangle[]{
+                new Rectangle( posX + 15, posY + 15, 16, 5),
+                new Rectangle(posX + 18, posY + 21, 24, 6),
+                new Rectangle(posX + 2, posY + 14, 4, 3),
+                new Rectangle(posX + 6, posY + 10, 4, 7),
+                new Rectangle(posX + 10,posY +  8, 6, 9)
+
+               // new Rectangle(posX + 20, posY + 20,
+                  //      26.0,20.0)
+        };
     }
 }
