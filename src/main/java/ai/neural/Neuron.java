@@ -1,22 +1,28 @@
-package neural;
+package ai.neural;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Neuron{
 
-    String id;
+    private int id;
     private double inputValue;
-    boolean isInputSet=false;
+    private boolean isInputSet = false;
     private double outputValue;
     private List<Synapse> inputSynapses = new ArrayList<>();
     private List<Synapse> outputSynapses = new ArrayList<>();
+    private double delta;
+
+    private static int nextId = 1;
+
+    public Neuron(){
+        this.id = nextId;
+        nextId++;
+    }
 
     public double getDelta() {
         return delta;
     }
-
-    private double delta;
 
     public void addInputSynapse(Synapse s){
         inputSynapses.add(s);
@@ -24,12 +30,9 @@ public class Neuron{
     public void addOutputSynapse(Synapse s){
         outputSynapses.add(s);
     }
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public double getInputValue() {
@@ -39,7 +42,7 @@ public class Neuron{
     public void setInputValue(double inputValue) {
         isInputSet=true;
         this.inputValue = inputValue;
-    }
+        }
 
     public double getOutputValue() {
         return outputValue;
@@ -66,25 +69,24 @@ public class Neuron{
     }
 
     public void activationFunction(){
-        double value=0;
-
         if(!isInputSet) {
+            double value = 0 ;
             for (Synapse s : inputSynapses) {
-                value +=(s.getWeight() * s.getValue());
+                value += (s.getWeight() * s.getValue());
             }
             outputValue = (1/(1+Math.exp(-value)));
-
-        }else {
+        }
+        else {
             outputValue = inputValue;
-
         }
     }
-    public double derivative(){
-        return outputValue * (1- outputValue);
+
+    void deltaOutputLayer(Double correctValue){
+        this.delta = (correctValue - outputValue) * derivative();
     }
 
-    public void deltaOutputLayer(Double correctValue){
-        this.delta=(correctValue-outputValue)*derivative();
+    private double derivative(){
+        return outputValue * (1- outputValue);
     }
 
     public void deltaHiddenLayer(){

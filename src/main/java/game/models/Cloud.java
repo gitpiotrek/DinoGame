@@ -8,7 +8,9 @@ import java.util.Random;
 
 public class Cloud extends GameObject{
     private ImageView cloudView = new ImageView();
-    private Image cloudImage = new Image(GameController.class.getResourceAsStream("/drawable/cloud.png"), 45.0,15.0,true,false);
+    private Image cloudImage = new Image(GameController.class.getResourceAsStream("/drawable/cloud.png"),
+            45.0,15.0,true,false);
+
     public Cloud(){
         this.setMinGap(80);
         this.setVelocity(2.0);

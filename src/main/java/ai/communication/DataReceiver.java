@@ -2,7 +2,7 @@ package ai.communication;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-//Anty back-pressure pattern
+//Anty-back-pressure pattern
 public class DataReceiver implements DataFlow {
 
     private LinkedBlockingQueue<NodeInput> queue = new LinkedBlockingQueue();

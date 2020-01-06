@@ -2,25 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Collideable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/route.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/FileValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/NeuralNetworkFileWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Track.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Stone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/drawable.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/cloud.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/cloud.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neural/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,10 +43,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,11 +61,12 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574896924863" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -106,11 +107,11 @@
       </method>
     </configuration>
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="neural.test" />
+      <option name="MAIN_CLASS_NAME" value="ai.neural.test" />
       <module name="DinoGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="neural.*" />
+          <option name="PATTERN" value="ai.neural.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

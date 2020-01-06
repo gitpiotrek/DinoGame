@@ -2,7 +2,6 @@ package game.models;
 
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 public class Obstacle extends GameObject implements Collideable{
     private double  width;

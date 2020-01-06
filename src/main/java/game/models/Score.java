@@ -32,6 +32,4 @@ public class Score {
         score+=(speed/36);
         view.setText(Integer.toString((int)score));
     }
-
-
 }

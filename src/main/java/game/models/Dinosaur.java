@@ -30,10 +30,6 @@ public class Dinosaur extends GameObject {
     private int runningTime = 25;
     private double jumpSpeed = 9;
 
-    public void setSmallJumping(boolean smallJumping) {
-        this.smallJumping = smallJumping;
-    }
-
     private boolean smallJumping;
 
     private Rectangle[] collisionBoxes;
@@ -53,12 +49,7 @@ public class Dinosaur extends GameObject {
 
     public void jumping() {
         if (this.jumping) {
-        /*
-        if ((this.getView().getTranslateY() <= 311.0) && jumpSpeed == 4.0) {
-            animateMovement.setImage(jumpingDino);
-        }
 
-         */
             this.getView().setTranslateY(this.getView().getTranslateY() - jumpSpeed);
             if (isSmallJumping()) {
                 jumpSpeed = PhysicAbstraction.INITIAL_JUMP_VELOCITY;
@@ -66,32 +57,33 @@ public class Dinosaur extends GameObject {
                 jumpSpeed -= PhysicAbstraction.GRAVITY;
             }
 
-
             if ((this.getView().getTranslateY() >= 299.0) && jumpSpeed < 0.0) {
                 this.jumping = false;
                 setSmallJumping(false);
                 jumpSpeed = 9;
+                this.getView().setTranslateY(299.0);
                 update();
             }
         }
     }
 
-    private boolean isSmallJumping() {
+    public void setSmallJumping(boolean smallJumping) {
+        this.smallJumping = smallJumping;
+    }
+
+    public boolean isSmallJumping() {
         return this.smallJumping;
     }
 
-    // cos działa xD
     @Override
     public void update() {
         collisionBoxes = dinoCollisionBoxes(this.getView().getTranslateX(), this.getView().getTranslateY());
         if (!jumping && !duck) {
             if (runningTime == 0) {
                 if (runningLeg) {
-                    // this.setView(leftLeg);
                     animateMovement.setImage(rightLeg);
                     runningLeg = false;
                 } else {
-                    //  this.setView(rightLeg);
                     animateMovement.setImage(leftLeg);
                     runningLeg = true;
                 }
@@ -100,11 +92,9 @@ public class Dinosaur extends GameObject {
         } else if (duck && !jumping) {
             if (runningTime == 0) {
                 if (runningLeg) {
-                    // this.setView(leftLeg);
                     animateMovement.setImage(duckRightLeg);
                     runningLeg = false;
                 } else {
-                    //  this.setView(rightLeg);
                     animateMovement.setImage(duckLeftLeg);
                     runningLeg = true;
                 }
@@ -117,8 +107,6 @@ public class Dinosaur extends GameObject {
 
     public void jump() {
         this.jumping = true;
-        // this.up = true;
-        // this.setView(jumpingDino);
     }
 
     public boolean isJumping() {
@@ -149,7 +137,6 @@ public class Dinosaur extends GameObject {
     }
 
     //skrypt w lniach ok 1700 - 1850 są collisionbox-y
-//@Override
     public boolean isColliding(Collideable obstacle) {
 
         if (!this.isDucking()) {

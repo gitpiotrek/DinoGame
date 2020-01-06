@@ -1,11 +1,11 @@
-package neural;
+package ai.neural;
 
 public class Synapse {
 
-    private double value =-2;
+    private double value = Math.random();
+    private double weight = Math.random();
     private Neuron senderNeuron;
     private Neuron receiverNeuron;
-    private double weight=Math.random()*6-3;
 
     public double getValue() {
         return value;
@@ -43,11 +43,12 @@ public class Synapse {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
     public void transferValue(){
         this.value = senderNeuron.getOutputValue();
     }
 
     public void updateWeightValue(){
-    weight=weight + 0.4 * receiverNeuron.getDelta()* senderNeuron.getOutputValue();
+    weight = weight + 0.4 * receiverNeuron.getDelta()* senderNeuron.getOutputValue();
     }
 }
