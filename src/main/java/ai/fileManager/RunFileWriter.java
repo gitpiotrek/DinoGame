@@ -1,13 +1,10 @@
-package ai.fileMenager;
+package ai.fileManager;
 
 import ai.communication.DataReceiver;
 import ai.communication.NodeInput;
-import ai.neural.NeuralNetwork;
 import game.MainGameStarter;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.List;
 
 public class RunFileWriter {
     private DataReceiver dataReceiver;
@@ -58,8 +55,8 @@ public class RunFileWriter {
         csvWriter.close();
         if (dest != null) {
             //Files.copy(file.toPath(), dest.toPath());
-            NeuralNetworkFileWriter neuralNetworkFileWriter = new NeuralNetworkFileWriter(file);
-            neuralNetworkFileWriter.writeNeuralNetworkToFile(dest);
+            NeuralNetworkFileManager neuralNetworkFileManager = new NeuralNetworkFileManager(file);
+            neuralNetworkFileManager.writeNeuralNetworkToFile(dest);
             //deleteTempFile();
             }
         }catch (IOException ex) {

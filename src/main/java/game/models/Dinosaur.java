@@ -1,5 +1,6 @@
 package game.models;
 
+import ai.communication.State;
 import game.controllers.GameController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -107,6 +108,7 @@ public class Dinosaur extends GameObject {
 
     public void jump() {
         this.jumping = true;
+        this.duck = false;
     }
 
     public boolean isJumping() {
@@ -134,6 +136,10 @@ public class Dinosaur extends GameObject {
     public void die() {
         animateMovement.setImage(dead);
         this.setView(animateMovement);
+    }
+
+    public void run(){
+        this.duck = false;
     }
 
     //skrypt w lniach ok 1700 - 1850 są collisionbox-y
@@ -165,6 +171,15 @@ public class Dinosaur extends GameObject {
                 new Rectangle(posX + 5, posY + 30, 21, 4),
                 new Rectangle(posX + 9, posY + 34, 15, 4),
         };
+    }
+
+    public void controlByNeuralNetwork(State state){
+        switch (state){
+            case JUMP: this.jump(); break;
+            case SMALL_JUMP: this.setSmallJumping(true); break;
+            case DUCK: this.duck(); break;
+            default: this.run(); break;
+        }
     }
 }
 

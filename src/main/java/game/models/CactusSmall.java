@@ -30,8 +30,8 @@ public class CactusSmall extends Obstacle implements Collideable{
 
     public CactusSmall() {
         this.setMinGap(120);
-        this.setWidth(17.0);
-        this.setHeight(35.0);
+       // this.setWidth(17.0);
+       // this.setHeight(35.0);
         this.setView(obstacleView);
         this.getView().setTranslateX(735.0);
         this.getView().setTranslateY(311.0);
@@ -45,15 +45,23 @@ public class CactusSmall extends Obstacle implements Collideable{
         switch (i){
             case 0:
                 returnedImage = oneCactus;
+                this.setWidth(17.0);
+                this.setHeight(35.0);
                 break;
             case 1:
                 returnedImage = twoCactus;
+                this.setWidth(34.0);
+                this.setHeight(35.0);
                 break;
             case 2:
                 returnedImage = threeCactus;
+                this.setWidth(51.0);
+                this.setHeight(35.0);
                 break;
             default:
                 returnedImage = fourCactus;
+                this.setWidth(68.0);
+                this.setHeight(35.0);
                 break;
         }
         return returnedImage;

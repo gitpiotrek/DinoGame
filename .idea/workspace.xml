@@ -2,25 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/FileValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/NeuralNetworkFileWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/models/Track.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/DataReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/communication/NodeInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jan.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/soban.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileMenager/FileValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/FileValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileMenager/NeuralNetworkFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/RunFileWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Cloud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/PhysicAbstraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Neuron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neural/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/NodeInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/NodeInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/fileMenager/CSVFileWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/Neuron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/Synapse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/Synapse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/PhysicAbstraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/PhysicAbstraction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/MenuView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zasim.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

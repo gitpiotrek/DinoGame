@@ -1,4 +1,4 @@
-package ai.fileMenager;
+package ai.fileManager;
 
 public class FileValidator {
 

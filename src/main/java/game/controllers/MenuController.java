@@ -28,9 +28,6 @@ public class MenuController implements Initializable {
     private Button playButton;
 
     @FXML
-    private Button chooseRunResultFileButton;
-
-    @FXML
     private Button exitButton;
 
     @FXML
@@ -43,12 +40,6 @@ public class MenuController implements Initializable {
     private Button showResultButton;
 
     @FXML
-    private Button generateButton;
-
-    @FXML
-    private Label runFileLabel;
-
-    @FXML
     private Label neuralFileLabel;
 
     @FXML
@@ -56,12 +47,10 @@ public class MenuController implements Initializable {
 
    private FileChooser fileChooser = new FileChooser();
 
-   private File selectedRunFile = null;
-   private File selectedNeuralFile = null;
+  public static File selectedNeuralFile = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        generateButton.setDisable(true);
     showResultButton.setDisable(true);
     }
 
@@ -72,24 +61,13 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    void chooseRunResultFileAction(ActionEvent event) {
-        selectedRunFile = fileChooser.showOpenDialog(menuPane.getParent().getScene().getWindow());
-        runFileLabel.setText( selectedRunFile.getName());
-        //validate file
-        generateButton.setDisable(false);
-    }
-
-    @FXML
     void chooseNeuralNetworkFileAction(ActionEvent event) {
        selectedNeuralFile = fileChooser.showOpenDialog(menuPane.getParent().getScene().getWindow());
-        neuralFileLabel.setText(selectedNeuralFile.getName());
-        //validate file
-        showResultButton.setDisable(false);
-    }
-
-    @FXML
-    void generateNeuralNetworkAction(ActionEvent event) {
-//loadTrainData( selectedRunFile)
+       if(selectedNeuralFile != null) {
+           //validate file
+           neuralFileLabel.setText(selectedNeuralFile.getName());
+           showResultButton.setDisable(false);
+       }
     }
 
     @FXML
@@ -112,7 +90,9 @@ public class MenuController implements Initializable {
     @FXML
     void showResultAction(ActionEvent event) throws IOException {
     MainGameStarter.gameState = GameState.SHOW_RESULT;
-    loadGame();
+    //NeuralNetworkFileManager neuralNetworkFileManager = new NeuralNetworkFileManager(selectedNeuralFile);
+   // loadNeuralNetworkSimulation(new GameController(neuralNetworkFileManager.loadNeuralNetwork()));
+        loadGame();
     }
 
     @FXML
@@ -130,7 +110,17 @@ public class MenuController implements Initializable {
         scene.onKeyPressedProperty().bind(root.onKeyPressedProperty());
         scene.onKeyReleasedProperty().bind(root.onKeyReleasedProperty());
     }
-
+/*
+    private void loadNeuralNetworkSimulation(GameController gameController)throws IOException{
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/views/GameView.fxml"));
+        loader.setController(gameController);
+        Pane root = loader.load();
+        MainGameStarter.stackPane.getChildren().clear();
+        MainGameStarter.stackPane.getChildren().add(root);
+        Scene scene = MainGameStarter.stackPane.getScene();
+        scene.onKeyPressedProperty().bind(root.onKeyPressedProperty());
+    }
+*/
     private String validate(String text) throws IllegalArgumentException {
         if(text.equals("") || text.isEmpty()){
             throw new IllegalArgumentException();

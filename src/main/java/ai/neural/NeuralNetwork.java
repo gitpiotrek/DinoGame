@@ -46,7 +46,7 @@ public class NeuralNetwork {
                 k.addInputSynapse(temp);
             }
         }
-        hiddenLayer.add(biasInputLayer);
+       // hiddenLayer.add(biasInputLayer);
 
         for(Neuron n:hiddenLayer){
             for(Neuron k:outputLayer){
@@ -56,7 +56,7 @@ public class NeuralNetwork {
                 k.addInputSynapse(temp);
             }
         }
-        outputLayer.add(biasHiddenLayer);
+       // outputLayer.add(biasHiddenLayer);
 
         network.add(firstLayerSynapses);
         network.add(secondLayerSynapses);
@@ -137,7 +137,7 @@ public class NeuralNetwork {
         return outputValue;
     }
 
-    public void setSynapsesWeights(double[] weightData){
+    public void setSynapsesWeights(Double[] weightData){
         int i = 0;
         for(Synapse synapse : firstLayerSynapses){
             synapse.setWeight(weightData[i]);
@@ -175,7 +175,7 @@ public class NeuralNetwork {
         return outputData;
     }
 
-    public State neuralNetworkStateResponse(NodeInput nodeInput) throws Exception {
+    public State getStateResponse(NodeInput nodeInput) throws Exception {
         double[] outputData = getOutputData(nodeInput);
         double max = outputData[0];
         for(int i = 1; i < outputData.length; i++){

@@ -4,7 +4,9 @@ import ai.communication.DataEmitter;
 import ai.communication.DataReceiver;
 import ai.communication.NodeInput;
 import ai.communication.State;
-import ai.fileMenager.RunFileWriter;
+import ai.fileManager.NeuralNetworkFileManager;
+import ai.fileManager.RunFileWriter;
+import ai.neural.NeuralNetwork;
 import game.MainGameStarter;
 import game.models.*;
 import javafx.animation.AnimationTimer;
@@ -57,7 +59,9 @@ public class GameController implements Initializable{
 
    private Label menuLabel;
 
-  //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
+   private NeuralNetwork neuralNetwork = null;
+
+    //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
       //      ,36.0,32.0,true,false);
 
 
@@ -66,16 +70,25 @@ public class GameController implements Initializable{
 
         switch (MainGameStarter.gameState){
             case PLAY:
-                setSpaceOnKeyPressed();
+                setOnKeyPressed();
                 break;
             case TRAIN:
-                setSpaceOnKeyPressed();
+                setOnKeyPressed();
                 dataReceiver = new DataReceiver();
                 dataEmitter = new DataEmitter(dataReceiver);
                 runFileWriter = new RunFileWriter(dataReceiver);
                 runFileWriter.writeToFile();
                 break;
             case SHOW_RESULT:
+                dataReceiver = new DataReceiver();
+                dataEmitter = new DataEmitter(dataReceiver);
+                NeuralNetworkFileManager neuralNetworkFileManager = new NeuralNetworkFileManager(MenuController.selectedNeuralFile);
+                try {
+                    neuralNetwork = neuralNetworkFileManager.loadNeuralNetwork();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("Load neural network file error");
+                }
                 break;
         }
 
@@ -138,6 +151,17 @@ public class GameController implements Initializable{
                 if(!obstacles.isEmpty()) emitData();
                 break;
             case SHOW_RESULT:
+                State state;
+                if(!obstacles.isEmpty()) emitData();
+                if (!dataReceiver.isEmpty()) {
+                    try {
+                        state = neuralNetwork.getStateResponse(dataReceiver.getData());
+                        System.out.println(state);
+                        player.controlByNeuralNetwork(state);
+                    } catch (Exception e) {
+                        player.die();
+                    }
+                }
                 break;
         }
 
@@ -178,6 +202,7 @@ public class GameController implements Initializable{
                          runFileWriter.finishWriting(dest);
                             break;
                         case SHOW_RESULT:
+                            System.out.println("Train your Dino again");
                             break;
                         default:
                             throw new IllegalStateException("Unexpected value: " + MainGameStarter.gameState);
@@ -253,9 +278,9 @@ public class GameController implements Initializable{
         nodeInput.setDistanceToNextObstacle(((x - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
         nodeInput.setDistanceBetweenObstacles((obstacles.size() > 1) ? (obstacles.iterator().next().getView().getTranslateX()
                 - obstacles.iterator().next().getView().getTranslateX())/600 : 0.0);
-        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl?(1.0/3.0 + 1.0/3.0*(261-y)/25.0):0.00);
+        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl?(y/343.0):0.00);
         nodeInput.setHeightOfObstacle(obstacles.getFirst().getHeight()/50);
-        nodeInput.setWidthOfObstacle((obstacles.getFirst().getWidth() - 17)/75);
+        nodeInput.setWidthOfObstacle((obstacles.getFirst().getWidth())/75);
         nodeInput.setPlayerYPosition((y-220)/100);
         nodeInput.setVelocity((this.currentSpeed - 6)/RELATIVE_MAX_SPEED);
 
@@ -309,7 +334,7 @@ public class GameController implements Initializable{
             }
        }
 
-    private void setSpaceOnKeyPressed(){
+    private void setOnKeyPressed(){
         gamePane.setOnKeyPressed((e) -> {
             if ((e.getCode() == KeyCode.SPACE) && (player.isJumping() == false)) {
                 player.jump();

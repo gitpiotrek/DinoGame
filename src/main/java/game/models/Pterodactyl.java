@@ -32,7 +32,7 @@ public class Pterodactyl extends Obstacle {
        this.setHeight(40.0);
        this.setView(obstacleView);
        this.getView().setTranslateX(746.0 );
-       this.getView().setTranslateY(343.0 - (double) selectYPos());
+       this.getView().setTranslateY(343.0 - selectYPos());
        obstacleView.setImage(pterodactylUp);
        collisionBoxes = collisionBoxesForPterodacty(this.getView().getTranslateX(),this.getView().getTranslateY());
    }
@@ -56,7 +56,7 @@ public class Pterodactyl extends Obstacle {
        super.update();
    }
 
-    private int selectYPos(){
+    private double selectYPos(){
         int i = random.nextInt(3);
         int y;
         switch (i){

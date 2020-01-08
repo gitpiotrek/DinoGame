@@ -42,12 +42,18 @@ public class CactusBig extends Obstacle implements Collideable{
         switch (i){
             case 0:
                 returnedImage = oneCactus;
+                this.setWidth(25.0);
+                this.setHeight(50.0);
                 break;
             case 1:
                 returnedImage = twoCactus;
+                this.setWidth(50.0);
+                this.setHeight(50.0);
                 break;
             default:
                 returnedImage = threeCactus;
+                this.setWidth(75.0);
+                this.setHeight(50.0);
                 break;
         }
         return returnedImage;

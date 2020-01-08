@@ -1,22 +1,24 @@
-package ai.fileMenager;
+package ai.fileManager;
 
 import ai.communication.NodeInput;
 import ai.neural.NeuralNetwork;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.stream.Collector;
 
-public class NeuralNetworkFileWriter {
+public class NeuralNetworkFileManager {
 
-    private NeuralNetwork neuralNetwork = new NeuralNetwork();;
     private File file = null;
-    private long numberLinesToRemove = 30;
 
-    public NeuralNetworkFileWriter(File file){
+    public NeuralNetworkFileManager(File file){
         this.file = file;
     }
 
     public void writeNeuralNetworkToFile(File dest) throws IOException {
+
+        NeuralNetwork neuralNetwork = new NeuralNetwork();
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(dest));
@@ -24,7 +26,8 @@ public class NeuralNetworkFileWriter {
         String row;
         StringBuilder stringBuilder = new StringBuilder();
 
-       long linesToTrain = Files.lines(file.toPath()).count() - numberLinesToRemove;
+        long numberLinesToRemove = 30;
+        long linesToTrain = Files.lines(file.toPath()).count() - numberLinesToRemove;
 
         for(int i = 0; i < linesToTrain; i++){
             row = bufferedReader.readLine();
@@ -36,8 +39,20 @@ public class NeuralNetworkFileWriter {
             stringBuilder.append(synapseWeight);
             stringBuilder.append(",");
         }
+        stringBuilder.replace(stringBuilder.length()-1, stringBuilder.length(),"");
         bufferedWriter.write(stringBuilder.toString());
         bufferedWriter.close();
         bufferedReader.close();
+    }
+
+    public NeuralNetwork loadNeuralNetwork() throws IOException {
+        NeuralNetwork neuralNetwork = new NeuralNetwork();
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        Double[] data = Arrays.stream(bufferedReader.readLine().split(","))
+                .map(Double::parseDouble).toArray(Double[]::new);
+        neuralNetwork.setSynapsesWeights(data);
+        bufferedReader.close();
+        return neuralNetwork;
     }
 }
