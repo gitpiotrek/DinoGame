@@ -51,7 +51,12 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    showResultButton.setDisable(true);
+        if(selectedNeuralFile == null){
+    showResultButton.setDisable(true);}
+        else {
+            neuralFileLabel.setText(selectedNeuralFile.getName());
+            showResultButton.setDisable(false);
+        }
     }
 
     @FXML

@@ -2,6 +2,7 @@ package ai.fileManager;
 
 import ai.communication.NodeInput;
 import ai.neural.NeuralNetwork;
+import game.controllers.MenuController;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -43,6 +44,7 @@ public class NeuralNetworkFileManager {
         bufferedWriter.write(stringBuilder.toString());
         bufferedWriter.close();
         bufferedReader.close();
+        MenuController.selectedNeuralFile = dest;
     }
 
     public NeuralNetwork loadNeuralNetwork() throws IOException {

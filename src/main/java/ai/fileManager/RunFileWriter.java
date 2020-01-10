@@ -32,10 +32,6 @@ public class RunFileWriter {
             while (true) {
                 if (!dataReceiver.isEmpty()) {
                     NodeInput nodeInput = dataReceiver.getData();
-                    //   System.out.println(nodeInput.getDistanceToNextObstacle() +" "+ nodeInput.getHeightOfObstacle() + " "+
-                    //   nodeInput.getWidthOfObstacle() + " " + nodeInput.getPlayerYPosition() + " " +
-                    //   nodeInput.getVelocity() + " " +nodeInput.getPterodactylHeight() + nodeInput.getState() );
-
                     try {
                         csvWriter.append(appendReceivedData(nodeInput));
                         csvWriter.flush();

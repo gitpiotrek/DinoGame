@@ -13,6 +13,8 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,8 +33,8 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import static game.models.PhysicAbstraction.*;
 
-public class GameController implements Initializable{
-//TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
+public class GameController implements Initializable {
+    //TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
     // tylko  2 przeszkody mogą byc takie same jak w jest w skrypcie js
     @FXML
     private Pane gamePane;
@@ -45,7 +47,7 @@ public class GameController implements Initializable{
     private AnimationTimer timer;
 
     private Random random = new Random();
-    private double currentSpeed = INITIAL_SPEED;
+    private double currentSpeed;
 
     private DataReceiver dataReceiver;
     private DataEmitter dataEmitter;
@@ -55,20 +57,21 @@ public class GameController implements Initializable{
     private Font font = Font.loadFont(this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf"), 28.0);
     private ImageView replayImageView;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
-            ,36.0,32.0,true,false);
+            , 36.0, 32.0, true, false);
 
-   private Label menuLabel;
+    private Label menuLabel;
 
-   private NeuralNetwork neuralNetwork = null;
+    private NeuralNetwork neuralNetwork = null;
 
     //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
-      //      ,36.0,32.0,true,false);
+    //      ,36.0,32.0,true,false);
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        switch (MainGameStarter.gameState){
+        gamePane.setOnKeyPressed((e) -> {});
+        switch (MainGameStarter.gameState) {
             case PLAY:
                 setOnKeyPressed();
                 break;
@@ -92,7 +95,8 @@ public class GameController implements Initializable{
                 break;
         }
 
-        obstacles  = new LinkedBlockingDeque<>();
+        currentSpeed = INITIAL_SPEED;
+        obstacles = new LinkedBlockingDeque<>();
 
         score = new Score();
         player = new Dinosaur();
@@ -132,7 +136,7 @@ public class GameController implements Initializable{
         clouds.add(new Cloud());
         gamePane.getChildren().add(clouds.get(0).getView());
 
-        timer = new AnimationTimer(){
+        timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 onUpdate();
@@ -142,17 +146,17 @@ public class GameController implements Initializable{
 
     }
 
-    private void onUpdate(){
+    private void onUpdate() {
 
-        switch (MainGameStarter.gameState){
+        switch (MainGameStarter.gameState) {
             case PLAY:
                 break;
             case TRAIN:
-                if(!obstacles.isEmpty()) emitData();
+                if (!obstacles.isEmpty()) emitData();
                 break;
             case SHOW_RESULT:
                 State state;
-                if(!obstacles.isEmpty()) emitData();
+                if (!obstacles.isEmpty()) emitData();
                 if (!dataReceiver.isEmpty()) {
                     try {
                         state = neuralNetwork.getStateResponse(dataReceiver.getData());
@@ -168,10 +172,10 @@ public class GameController implements Initializable{
         drawCloud();
         drawObstacles();
 
-        for(Obstacle o: obstacles){
+        for (Obstacle o : obstacles) {
             o.update();
         }
-        for(Cloud cloud: clouds){
+        for (Cloud cloud : clouds) {
             cloud.update();
         }
 
@@ -180,49 +184,51 @@ public class GameController implements Initializable{
         score.onUpdate(currentSpeed);
         speedUp();
 
-        if(obstacles.getFirst().isAlive()){
-                if(player.isColliding(obstacles.getFirst())) {
-                    replayImageView.setVisible(true);
-                    timer.stop();
-                    score.resetScore();
-                    endGame.setVisible(true);
-                    player.die();
+        if (obstacles.getFirst().isAlive()) {
+            if (player.isColliding(obstacles.getFirst())) {
+                replayImageView.setVisible(true);
+                timer.stop();
+                endGame.setVisible(true);
+                player.die();
 
-                    //poprawic
-                    menuLabel.setVisible(true);
+                //poprawic
+                menuLabel.setVisible(true);
 
-                    switch (MainGameStarter.gameState){
-                        case PLAY:
-                            break;
-                        case TRAIN:
-                            FileChooser fileChooser = new FileChooser();
-                            fileChooser.getExtensionFilters().addAll(
-                                    new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-                            File dest = fileChooser.showSaveDialog(gamePane.getParent().getScene().getWindow());
-                         runFileWriter.finishWriting(dest);
-                            break;
-                        case SHOW_RESULT:
-                            System.out.println("Train your Dino again");
-                            break;
-                        default:
-                            throw new IllegalStateException("Unexpected value: " + MainGameStarter.gameState);
+                switch (MainGameStarter.gameState) {
+                    case PLAY:
+                        break;
+                    case TRAIN:
+                        FileChooser fileChooser = new FileChooser();
+                        fileChooser.setInitialFileName(MainGameStarter.playerName +"_" + score.getNumericScore());
+                        fileChooser.getExtensionFilters().addAll(
+                                new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+                        File dest = fileChooser.showSaveDialog(gamePane.getParent().getScene().getWindow());
+                        runFileWriter.finishWriting(dest);
+                        break;
+                    case SHOW_RESULT:
+                        System.out.println("Train your Dino again");
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + MainGameStarter.gameState);
+                }
+                gamePane.setOnKeyPressed((e) -> {
+                    if ((e.getCode() == KeyCode.SPACE)) {
+                        gamePane.getChildren().clear();
+
+                        this.initialize(null, null);
                     }
-                    gamePane.setOnKeyPressed((e) -> {
-                        if ((e.getCode() == KeyCode.SPACE)) {
-                            gamePane.getChildren().clear();
-
-                           this.initialize(null,null);
-                            }
-                        if ((e.getCode() == KeyCode.M)) {
-                            try {
-                                loadMenu();
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
+                    if ((e.getCode() == KeyCode.M)) {
+                        try {
+                            loadMenu();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
-                });}}
+                    }
+                });
+            }
+        }
 
-        if(obstacles.getFirst().getView().getTranslateX() <= obstacles.getFirst().getWidth() *(-1)){
+        if (obstacles.getFirst().getView().getTranslateX() <= obstacles.getFirst().getWidth() * (-1)) {
             obstacles.getFirst().setAlive(false);
         }
         /*
@@ -232,36 +238,35 @@ public class GameController implements Initializable{
 
          */
 
-        if(!obstacles.getFirst().isAlive()){
+        if (!obstacles.getFirst().isAlive()) {
             gamePane.getChildren().remove(obstacles.getFirst().getView());
             obstacles.poll();
         }
-        if(!clouds.get(0).isVisible()){
+        if (!clouds.get(0).isVisible()) {
             gamePane.getChildren().remove(clouds.get(0).getView());
             clouds.remove(0);
         }
-        if(player.isJumping()) {
+        if (player.isJumping()) {
             player.jumping();
         }
     }
 
     private void drawCloud() {
-        if(clouds.isEmpty()){
+        if (clouds.isEmpty()) {
             clouds.add(new Cloud());
-            gamePane.getChildren().add(clouds.get(clouds.size()-1).getView());
+            gamePane.getChildren().add(clouds.get(clouds.size() - 1).getView());
+        } else if (clouds.get(clouds.size() - 1).getView().getTranslateX() < 680) {
+            if (random.nextInt(100) < 1) {
+                clouds.add(new Cloud());
+                gamePane.getChildren().add(clouds.get(clouds.size() - 1).getView());
+            }
         }
-   else if(clouds.get(clouds.size()-1).getView().getTranslateX() < 680){
-        if(random.nextInt(100)<1){
-            clouds.add(new Cloud());
-            gamePane.getChildren().add(clouds.get(clouds.size()-1).getView());
-        }
-    }
     }
 
-    private void speedUp(){
-        if(currentSpeed <= PhysicAbstraction.MAX_SPEED) {
+    private void speedUp() {
+        if (currentSpeed <= PhysicAbstraction.MAX_SPEED) {
             currentSpeed += PhysicAbstraction.ACCELERATION;
-            if(currentSpeed > PhysicAbstraction.MAX_SPEED){
+            if (currentSpeed > PhysicAbstraction.MAX_SPEED) {
                 currentSpeed = PhysicAbstraction.MAX_SPEED;
             }
             for (Obstacle obstacle : obstacles) {
@@ -274,79 +279,79 @@ public class GameController implements Initializable{
         NodeInput nodeInput = new NodeInput();
         double x = obstacles.getFirst().getView().getTranslateX();
         double y = obstacles.getFirst().getView().getTranslateY();
+        double distance = (x - (player.getView().getTranslateX() + (player.isDucking() ? 59.0 : 44.0))) / 750;
 
-        nodeInput.setDistanceToNextObstacle(((x - (player.getView().getTranslateX() + (player.isDucking()?59.0:44.0)))+50)/750);
+        nodeInput.setDistanceToNextObstacle((distance>0)?distance:0);
         nodeInput.setDistanceBetweenObstacles((obstacles.size() > 1) ? (obstacles.iterator().next().getView().getTranslateX()
-                - obstacles.iterator().next().getView().getTranslateX())/600 : 0.0);
-        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl?(y/343.0):0.00);
-        nodeInput.setHeightOfObstacle(obstacles.getFirst().getHeight()/50);
-        nodeInput.setWidthOfObstacle((obstacles.getFirst().getWidth())/75);
-        nodeInput.setPlayerYPosition((y-220)/100);
-        nodeInput.setVelocity((this.currentSpeed - 6)/RELATIVE_MAX_SPEED);
+                - obstacles.iterator().next().getView().getTranslateX()) / 600 : 0.0);
+        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl ? (y / 343.0) : 0.00);
+        nodeInput.setHeightOfObstacle(obstacles.getFirst().getHeight() / 50);
+        nodeInput.setWidthOfObstacle((obstacles.getFirst().getWidth()) / 75);
+        nodeInput.setPlayerYPosition((y - 220) / 100);
+        nodeInput.setVelocity((this.currentSpeed - 6) / RELATIVE_MAX_SPEED);
 
         nodeInput.setState(returnState());
         dataEmitter.emitData(nodeInput);
+
     }
 
-    private State returnState(){
-        if(player.isDucking()){
-        return State.DUCK;
-        }else if (player.isJumping()){
-            return State.JUMP;
-        }else if(player.isSmallJumping()){
+    private State returnState() {
+        if (player.isDucking()) {
+            return State.DUCK;
+        } else if (player.isJumping() && player.isSmallJumping()) {
             return State.SMALL_JUMP;
-        }else {return State.RUN;}
+        } else if (player.isJumping()) {
+            return State.JUMP;
+        } else {
+            return State.RUN;
+        }
     }
 
-    private void drawObstacles(){
-            if(obstacles.isEmpty() || (!obstacles.getFirst().isAlive() && obstacles.size() == 1)){
-                    int obstacleNumber = random.nextInt(3);
-                    switch (obstacleNumber){
-                        case 0:
-                            obstacles.add(new CactusSmall());
-                            break;
-                        case 1:
-                            obstacles.add(new CactusBig());
-                            break;
-                        default:
-                            obstacles.add(new Pterodactyl());
-                            break;
-                    }
+    private void drawObstacles() {
+        if (obstacles.isEmpty() || (!obstacles.getFirst().isAlive() && obstacles.size() == 1)) {
+
+            addRandomObstacle();
             gamePane.getChildren().add(obstacles.getLast().getView());
 
-        }else if (700- obstacles.getLast().getView().getTranslateX() > obstacles.getLast().getMinGap()){
-                if(random.nextInt(100)<1){
+        } else if (700 - obstacles.getLast().getView().getTranslateX() > obstacles.getLast().getMinGap()) {
+            if (random.nextInt(100) < 1) {
 
-                    int obstacleNumber = random.nextInt(3);
-                    switch (obstacleNumber){
-                        case 0:
-                            obstacles.add(new CactusSmall());
-                            break;
-                        case 1:
-                            obstacles.add(new CactusBig());
-                            break;
-                        default:
-                            obstacles.add(new Pterodactyl());
-                            break;
-                    }
-                    gamePane.getChildren().add(obstacles.getLast().getView());
-                }
+                addRandomObstacle();
+                gamePane.getChildren().add(obstacles.getLast().getView());
             }
-       }
+        }
+    }
 
-    private void setOnKeyPressed(){
+    private Obstacle addRandomObstacle() {
+        int obstacleNumber = random.nextInt(3);
+        Obstacle obstacle;
+        switch (obstacleNumber) {
+            case 0:
+                obstacle = new CactusSmall();
+                break;
+            case 1:
+                obstacle = new CactusBig();
+                break;
+            default:
+                obstacle = new Pterodactyl();
+                break;
+        }
+        obstacles.add(obstacle);
+        return obstacle;
+    }
+
+    private void setOnKeyPressed() {
         gamePane.setOnKeyPressed((e) -> {
             if ((e.getCode() == KeyCode.SPACE) && (player.isJumping() == false)) {
                 player.jump();
-            }
-            else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
+            } else if (((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == false)) {
                 player.duck();
-            }else if(((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == true)){
+            } else if (((e.getCode() == (KeyCode.DOWN)) || (e.getCode() == (KeyCode.S))) && (player.isJumping() == true)) {
                 player.setSmallJumping(true);
             }
         });
         gamePane.setOnKeyReleased((event) -> {
-            if(((event.getCode() == KeyCode.DOWN) || (event.getCode() == (KeyCode.S))) && (player.isJumping() == false)){
+            if (((event.getCode() == KeyCode.DOWN) || (event.getCode() == (KeyCode.S))) && (player.isJumping() == false)) {
                 player.notDuck();
             }
         });
