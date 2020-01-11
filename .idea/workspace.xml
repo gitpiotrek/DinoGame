@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/DinoGame.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/DataReceiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/communication/NodeInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/communication/NodeInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/fileManager/NeuralNetworkFileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/fileManager/NeuralNetworkFileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/fileManager/RunFileWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/fileManager/RunFileWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/NeuralNetwork.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/Neuron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/Synapse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/neural/Synapse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -230,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574892232358</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed run after ducking while neuron network is controlling and some neural network fixes">
+      <created>1578769344260</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1578769344260</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -280,6 +270,7 @@
     <MESSAGE value="Kurwa w koncu dziala tak jak powinno ale kod do optymalizacji bo zrobiony chłoporobotniczo" />
     <MESSAGE value="Poprawiony duck" />
     <MESSAGE value="Small jump added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small jump added" />
+    <MESSAGE value="fixed run after ducking while neuron network is controlling and some neural network fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed run after ducking while neuron network is controlling and some neural network fixes" />
   </component>
 </project>

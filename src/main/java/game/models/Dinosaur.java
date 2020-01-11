@@ -184,15 +184,26 @@ public class Dinosaur extends GameObject {
                 previousState = State.SMALL_JUMP;
                 break;
             case DUCK:
-                this.duck();
-                previousState = State.DUCK;
+                if(this.getView().getTranslateY()>321.0){
+                    this.setSmallJumping(true);
+                    this.jumping();
+                }else{
+                    this.duck();
+                    previousState = State.DUCK;
+                }
+
                 break;
             default:
-                if(previousState == State.DUCK){
-                    this.notDuck();
+                if(this.getView().getTranslateY()<299.0){
+                    this.setSmallJumping(true);
+                    this.jumping();
+                }else{
+                    if(previousState == State.DUCK){
+                        this.notDuck();
+                    }
+                    this.run();
+                    previousState = State.RUN;
                 }
-                this.run();
-                previousState = State.RUN;
             break;
         }
     }
