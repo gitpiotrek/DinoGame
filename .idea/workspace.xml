@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileManager/RunFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/RunFileWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/fileManager/NeuralNetworkFileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/fileManager/NeuralNetworkFileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/fileManager/RunFileWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/fileManager/RunFileWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Score.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +43,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574896924863" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -63,15 +51,16 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/ai/fileMenager/RunFileWriter.java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
-      <recent name="C:\Users\Filip\Desktop\Git\DinoGame\src\main\resources\drawable" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\DinoGame" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
       <recent name="C:\Users\Filip\Desktop\DinoGame\src\main\java\neural" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources" />
       <recent name="C:\Users\User\Desktop\DinoGame\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\DinoGame\src\main\resources\drawable" />
+      <recent name="C:\Users\Filip\Desktop\Git\DinoGame\src\main\resources\drawable" />
     </key>
   </component>
   <component name="RunDashboard">
