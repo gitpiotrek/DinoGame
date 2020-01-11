@@ -30,8 +30,8 @@ public class Dinosaur extends GameObject {
 
     private int runningTime = 25;
     private double jumpSpeed = 9;
-
     private boolean smallJumping;
+    private State previousState = State.RUN;
 
     private Rectangle[] collisionBoxes;
 
@@ -175,10 +175,25 @@ public class Dinosaur extends GameObject {
 
     public void controlByNeuralNetwork(State state){
         switch (state){
-            case JUMP: this.jump(); break;
-            case SMALL_JUMP: this.setSmallJumping(true); break;
-            case DUCK: this.duck(); break;
-            default: this.run(); break;
+            case JUMP:
+                this.jump();
+                previousState = State.JUMP;
+            break;
+            case SMALL_JUMP:
+                this.setSmallJumping(true);
+                previousState = State.SMALL_JUMP;
+                break;
+            case DUCK:
+                this.duck();
+                previousState = State.DUCK;
+                break;
+            default:
+                if(previousState == State.DUCK){
+                    this.notDuck();
+                }
+                this.run();
+                previousState = State.RUN;
+            break;
         }
     }
 }

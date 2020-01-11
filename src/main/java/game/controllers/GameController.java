@@ -13,8 +13,7 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,8 +33,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 import static game.models.PhysicAbstraction.*;
 
 public class GameController implements Initializable {
-    //TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
-    // tylko  2 przeszkody mogą byc takie same jak w jest w skrypcie js
     @FXML
     private Pane gamePane;
     private Score score;
@@ -60,7 +57,6 @@ public class GameController implements Initializable {
             , 36.0, 32.0, true, false);
 
     private Label menuLabel;
-
     private NeuralNetwork neuralNetwork = null;
 
     //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")

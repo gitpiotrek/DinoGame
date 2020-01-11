@@ -6,6 +6,7 @@ public class Synapse {
     private double weight = Math.random();
     private Neuron senderNeuron;
     private Neuron receiverNeuron;
+    private double previousValue =0;
 
     public double getValue() {
         return value;
@@ -49,6 +50,8 @@ public class Synapse {
     }
 
     public void updateWeightValue(){
-    weight = weight + 0.4 * receiverNeuron.getDelta()* senderNeuron.getOutputValue();
+        previousValue = weight;
+        weight=weight + 0.2* receiverNeuron.getDelta()* senderNeuron.getOutputValue();
+        weight+=((weight-previousValue)*0.9);
     }
 }

@@ -6,7 +6,9 @@ import game.controllers.MenuController;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Collector;
 
 public class NeuralNetworkFileManager {
@@ -29,11 +31,21 @@ public class NeuralNetworkFileManager {
 
         long numberLinesToRemove = 30;
         long linesToTrain = Files.lines(file.toPath()).count() - numberLinesToRemove;
+        ArrayList<NodeInput> data = new ArrayList<>();
 
         for(int i = 0; i < linesToTrain; i++){
             row = bufferedReader.readLine();
             nodeInput = new NodeInput(row);
-            neuralNetwork.train(nodeInput);
+            data.add(nodeInput);
+            //neuralNetwork.train(nodeInput);
+        }
+
+        for(int j = 0;j<5000; j++){
+            Collections.shuffle(data);
+            for(NodeInput node: data){
+                neuralNetwork.train(node);
+            }
+            System.out.println(j);
         }
         double[] synapsesWeights = neuralNetwork.getSynapsesWeights();
         for(double synapseWeight : synapsesWeights){
