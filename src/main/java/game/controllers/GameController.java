@@ -257,6 +257,7 @@ public class GameController implements Initializable {
                 gamePane.getChildren().add(clouds.get(clouds.size() - 1).getView());
             }
         }
+        player.getView().toFront();
     }
 
     private void speedUp() {

@@ -174,38 +174,28 @@ public class Dinosaur extends GameObject {
     }
 
     public void controlByNeuralNetwork(State state){
-        switch (state){
-            case JUMP:
-                this.jump();
-                previousState = State.JUMP;
-            break;
-            case SMALL_JUMP:
-                this.setSmallJumping(true);
-                previousState = State.SMALL_JUMP;
-                break;
-            case DUCK:
-                if(this.getView().getTranslateY()>321.0){
+            switch (state){
+                case JUMP:
+                    this.jump();
+                    previousState = State.JUMP;
+                    break;
+                case SMALL_JUMP:
                     this.setSmallJumping(true);
-                    this.jumping();
-                }else{
-                    this.duck();
-                    previousState = State.DUCK;
-                }
-
-                break;
-            default:
-                if(this.getView().getTranslateY()<299.0){
-                    this.setSmallJumping(true);
-                    this.jumping();
-                }else{
+                    previousState = State.SMALL_JUMP;
+                    break;
+                case DUCK:
+                    if(!this.jumping){
+                        this.duck();
+                        previousState = State.DUCK;}
+                    break;
+                default:
                     if(previousState == State.DUCK){
                         this.notDuck();
                     }
                     this.run();
                     previousState = State.RUN;
-                }
-            break;
+                    break;
+            }
         }
-    }
 }
 
