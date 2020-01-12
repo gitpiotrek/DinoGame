@@ -4,17 +4,16 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 import java.util.Random;
 
 public class CactusBig extends Obstacle implements Collideable{
     private ImageView obstacleView = new ImageView();
-    private final static Image oneCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusBigOne.png")
+    private final static Image oneCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_big_one.png")
                 ,25.0,50.0,true,false);
-    private final static Image twoCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusBigTwo.png")
+    private final static Image twoCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_big_two.png")
             ,50.0,50.0,true,false);
-    private final static Image threeCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusBigThree.png")
+    private final static Image threeCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_big_three.png")
             ,75.0,50.0,true,false);
 
     private  Rectangle[] collisionBoxes;

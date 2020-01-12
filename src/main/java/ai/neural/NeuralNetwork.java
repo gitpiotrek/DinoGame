@@ -115,7 +115,13 @@ public class NeuralNetwork {
     public void train(NodeInput nodeInput){
         setInputs(nodeInput);
         forwardPropagation();
-        backPropagation(nodeInput);
+        try {
+            if (nodeInput.getState() != getStateResponse(nodeInput)) {
+                backPropagation(nodeInput);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 /*
     public void trainFromDataString(String data){

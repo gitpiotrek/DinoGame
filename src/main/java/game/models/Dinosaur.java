@@ -15,23 +15,23 @@ public class Dinosaur extends GameObject {
     private boolean duck = false;
     private boolean runningLeg = false;
     private ImageView animateMovement = new ImageView();
-    private Image leftLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinorunleft.png")
+    private Image leftLeg = new Image(GameController.class.getResourceAsStream("/drawable/dino_left.png")
             , 44.0, 47.0, true, false);
-    private Image rightLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinorunright.png")
+    private Image rightLeg = new Image(GameController.class.getResourceAsStream("/drawable/dino_right.png")
             , 44.0, 47.0, true, false);
-    private Image jumpingDino = new Image(GameController.class.getResourceAsStream("/drawable/dino0000.png")
+    private Image jumpingDino = new Image(GameController.class.getResourceAsStream("/drawable/dino.png")
             , 44.0, 47.0, true, false);
-    private Image duckLeftLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinoduckright.png")
+    private Image duckLeftLeg = new Image(GameController.class.getResourceAsStream("/drawable/dino_duck_left.png")
             , 59.0, 25.0, true, false);
-    private Image duckRightLeg = new Image(GameController.class.getResourceAsStream("/drawable/dinoduckleft.png")
+    private Image duckRightLeg = new Image(GameController.class.getResourceAsStream("/drawable/dino_duck_right.png")
             , 59.0, 25.0, true, false);
-    private Image dead = new Image(GameController.class.getResourceAsStream("/drawable/dinoDead0000.png")
+    private Image dead = new Image(GameController.class.getResourceAsStream("/drawable/dino_dead.png")
             , 44.0, 47.0, true, false);
 
     private int runningTime = 25;
     private double jumpSpeed = 9;
-
     private boolean smallJumping;
+    private State previousState = State.RUN;
 
     private Rectangle[] collisionBoxes;
 
@@ -175,10 +175,27 @@ public class Dinosaur extends GameObject {
 
     public void controlByNeuralNetwork(State state){
         switch (state){
-            case JUMP: this.jump(); break;
-            case SMALL_JUMP: this.setSmallJumping(true); break;
-            case DUCK: this.duck(); break;
-            default: this.run(); break;
+            case JUMP:
+                this.jump();
+                previousState = State.JUMP;
+            break;
+            case SMALL_JUMP:
+                if(previousState == State.JUMP){
+                this.setSmallJumping(true);
+                previousState = State.SMALL_JUMP;}
+                break;
+            case DUCK:
+                if(!this.jumping){
+                this.duck();
+                previousState = State.DUCK;}
+                break;
+            default:
+                if(previousState == State.DUCK){
+                    this.notDuck();
+                }
+                this.run();
+                previousState = State.RUN;
+            break;
         }
     }
 }

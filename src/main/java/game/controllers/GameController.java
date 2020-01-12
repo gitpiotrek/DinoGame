@@ -13,8 +13,7 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,8 +33,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 import static game.models.PhysicAbstraction.*;
 
 public class GameController implements Initializable {
-    //TODO Ukrywanie przeszkod po lewej stronie, zwiekszenie predkosci, mozliwosc pojawienia sie wielu przeszkod ( max 3 ) w jednym widoku,
-    // tylko  2 przeszkody mogą byc takie same jak w jest w skrypcie js
     @FXML
     private Pane gamePane;
     private Score score;
@@ -56,14 +53,13 @@ public class GameController implements Initializable {
     private List<Cloud> clouds = new ArrayList<>();
     private Font font = Font.loadFont(this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf"), 28.0);
     private ImageView replayImageView;
-    private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
+    private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restart_button.png")
             , 36.0, 32.0, true, false);
 
     private Label menuLabel;
-
     private NeuralNetwork neuralNetwork = null;
 
-    //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restartButton.png")
+    //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restart_button.png")
     //      ,36.0,32.0,true,false);
 
 
@@ -160,7 +156,8 @@ public class GameController implements Initializable {
                 if (!dataReceiver.isEmpty()) {
                     try {
                         state = neuralNetwork.getStateResponse(dataReceiver.getData());
-                        System.out.println(state);
+                        if(state == State.SMALL_JUMP){
+                        System.out.println(state);}
                         player.controlByNeuralNetwork(state);
                     } catch (Exception e) {
                         player.die();

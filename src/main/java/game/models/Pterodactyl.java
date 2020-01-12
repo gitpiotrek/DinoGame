@@ -13,9 +13,9 @@ public class Pterodactyl extends Obstacle {
     private Random random = new Random();
 
     private ImageView obstacleView = new ImageView();
-    private static Image pterodactylUp = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactylUp.png")
+    private static Image pterodactylUp = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactyl_up.png")
             ,46.0,40.0,true,false);
-    private static Image pterodactylDown = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactylDown.png")
+    private static Image pterodactylDown = new Image(Obstacle.class.getResourceAsStream("/drawable/pterodactyl_down.png")
                 ,46.0,40.0,true,false);
 
     private Rectangle[] collisionBoxes;

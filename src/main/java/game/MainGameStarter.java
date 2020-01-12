@@ -30,7 +30,7 @@ primaryStage.setMinWidth(700.0);
         primaryStage.setOnCloseRequest(event -> {
             System.exit(0);
         });
-        primaryStage.getIcons().add(new Image(this.getClass().getResource("/drawable/dino0000.png").openStream()));
+        primaryStage.getIcons().add(new Image(this.getClass().getResource("/drawable/dino.png").openStream()));
         primaryStage.setTitle("DinoGame");
         primaryStage.show();
     }

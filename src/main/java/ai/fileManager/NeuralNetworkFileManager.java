@@ -3,21 +3,25 @@ package ai.fileManager;
 import ai.communication.NodeInput;
 import ai.neural.NeuralNetwork;
 import game.controllers.MenuController;
+import javafx.concurrent.Task;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Collector;
 
-public class NeuralNetworkFileManager {
+public class NeuralNetworkFileManager{
 
     private File file = null;
+    private WriteNeuralNetworkTask writeNeuralNetworkTask = new WriteNeuralNetworkTask();
 
     public NeuralNetworkFileManager(File file){
         this.file = file;
     }
 
-    public void writeNeuralNetworkToFile(File dest) throws IOException {
+    void writeNeuralNetworkToFile(File dest) throws IOException {
 
         NeuralNetwork neuralNetwork = new NeuralNetwork();
 
@@ -27,14 +31,27 @@ public class NeuralNetworkFileManager {
         String row;
         StringBuilder stringBuilder = new StringBuilder();
 
-        long numberLinesToRemove = 30;
+        long numberLinesToRemove = 100;
         long linesToTrain = Files.lines(file.toPath()).count() - numberLinesToRemove;
+        ArrayList<NodeInput> data = new ArrayList<>();
 
         for(int i = 0; i < linesToTrain; i++){
             row = bufferedReader.readLine();
             nodeInput = new NodeInput(row);
-            neuralNetwork.train(nodeInput);
+            data.add(nodeInput);
+            //neuralNetwork.train(nodeInput);
         }
+        for(NodeInput node: data){
+            neuralNetwork.train(node);
+        }
+
+        for(int j = 0;j<100; j++){
+            Collections.shuffle(data);
+            for(NodeInput node: data){
+                neuralNetwork.train(node);
+            }
+        }
+
         double[] synapsesWeights = neuralNetwork.getSynapsesWeights();
         for(double synapseWeight : synapsesWeights){
             stringBuilder.append(synapseWeight);

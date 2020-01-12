@@ -9,7 +9,8 @@ import java.io.*;
 public class RunFileWriter {
     private DataReceiver dataReceiver;
     private FileWriter  csvWriter = null;
-    private  File file = new File("./" + MainGameStarter.playerName +".csv");
+    private File file = new File("./" + MainGameStarter.playerName +".csv");
+    private Thread ioThread;
 
     public RunFileWriter(DataReceiver dataReceiver){
         this.dataReceiver = dataReceiver;
@@ -28,7 +29,7 @@ public class RunFileWriter {
             e.printStackTrace();
         }
 
-        Thread ioThread = new Thread(() -> {
+        ioThread = new Thread(() -> {
             while (true) {
                 if (!dataReceiver.isEmpty()) {
                     NodeInput nodeInput = dataReceiver.getData();
@@ -48,6 +49,7 @@ public class RunFileWriter {
         //executorService.shutdownNow();
         // ioThread.suspend();
         try {
+            ioThread.stop();
         csvWriter.close();
         if (dest != null) {
             //Files.copy(file.toPath(), dest.toPath());

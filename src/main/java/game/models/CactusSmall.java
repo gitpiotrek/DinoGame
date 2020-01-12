@@ -3,22 +3,19 @@ package game.models;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 import java.util.Random;
 
 public class CactusSmall extends Obstacle implements Collideable{
     private ImageView obstacleView = new ImageView();
-    private static Image oneCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusSmallOne.png")
+    private static Image oneCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_small_one.png")
                 ,17.0,35.0,true,false);
-    private static Image twoCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusSmallTwo.png")
+    private static Image twoCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_small_two.png")
                 ,34.0,35.0,true,false);
-    private static Image threeCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusSmallThree.png")
+    private static Image threeCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_small_three.png")
                 ,51.0,35.0,true,false);
-    private static Image fourCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactusSmallFour.png")
+    private static Image fourCactus = new Image(Obstacle.class.getResourceAsStream("/drawable/cactus_small_four.png")
                 ,68.0,35.0,true,false);
     private Random random = new Random();
 

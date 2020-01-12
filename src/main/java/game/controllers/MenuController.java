@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -37,6 +38,9 @@ public class MenuController implements Initializable {
     private Button chooseNeuralNetworkFileButton;
 
     @FXML
+    private Label dinoGameLabel;
+
+    @FXML
     private Button showResultButton;
 
     @FXML
@@ -44,6 +48,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private TextField playerNameTextField;
+  //  private Font font = Font.loadFont(this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf"), 28.0);
 
    private FileChooser fileChooser = new FileChooser();
 
@@ -51,6 +56,9 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //dinoGameLabel.setFont(font);
+       // playButton.setFont(font);
+
         if(selectedNeuralFile == null){
     showResultButton.setDisable(true);}
         else {
