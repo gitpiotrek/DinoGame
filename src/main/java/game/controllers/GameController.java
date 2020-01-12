@@ -22,7 +22,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -52,16 +51,13 @@ public class GameController implements Initializable {
 
     private List<Cloud> clouds = new ArrayList<>();
     private Font font = Font.loadFont(this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf"), 28.0);
+    private Font smallerFont = Font.loadFont(this.getClass().getResourceAsStream("/font/PressStart2P-Regular.ttf"), 14.0);
     private ImageView replayImageView;
     private Image replayImage = new Image(GameController.class.getResourceAsStream("/drawable/restart_button.png")
             , 36.0, 32.0, true, false);
 
     private Label menuLabel;
     private NeuralNetwork neuralNetwork = null;
-
-    //  private Image backToMenuImage = new Image(GameController.class.getResourceAsStream("/drawable/restart_button.png")
-    //      ,36.0,32.0,true,false);
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -100,7 +96,7 @@ public class GameController implements Initializable {
         track = new Track();
         endGame = new Label();
         endGame.setTranslateX(230);
-        endGame.setTranslateY(150);
+        endGame.setTranslateY(130);
         endGame.setText("GAME OVER");
         endGame.setFont(font);
 
@@ -111,18 +107,17 @@ public class GameController implements Initializable {
 
         endGame.setVisible(false);
 
-        //replay menu zrobic lepiej
-        menuLabel = new Label("Press M to back to menu");
+        menuLabel = new Label("Press SPACE to repeat, press M to back to menu");
+        menuLabel.setFont(smallerFont);
         gamePane.getChildren().add(menuLabel);
-        menuLabel.setTranslateY(260);
-        menuLabel.setTranslateX(332);
+        menuLabel.setTranslateY(240);
+        menuLabel.setTranslateX(30);
         menuLabel.setVisible(false);
-        //---------
 
         replayImageView = new ImageView();
         gamePane.getChildren().add(replayImageView);
 
-        replayImageView.setTranslateY(220);
+        replayImageView.setTranslateY(180);
         replayImageView.setTranslateX(332);
         replayImageView.setImage(replayImage);
         replayImageView.setVisible(false);
@@ -139,7 +134,6 @@ public class GameController implements Initializable {
             }
         };
         timer.start();
-
     }
 
     private void onUpdate() {
@@ -156,8 +150,9 @@ public class GameController implements Initializable {
                 if (!dataReceiver.isEmpty()) {
                     try {
                         state = neuralNetwork.getStateResponse(dataReceiver.getData());
-                        if(state == State.SMALL_JUMP){
-                        System.out.println(state);}
+                        if (state == State.SMALL_JUMP) {
+                            System.out.println(state);
+                        }
                         player.controlByNeuralNetwork(state);
                     } catch (Exception e) {
                         player.die();
@@ -188,7 +183,6 @@ public class GameController implements Initializable {
                 endGame.setVisible(true);
                 player.die();
 
-                //poprawic
                 menuLabel.setVisible(true);
 
                 switch (MainGameStarter.gameState) {
@@ -196,7 +190,7 @@ public class GameController implements Initializable {
                         break;
                     case TRAIN:
                         FileChooser fileChooser = new FileChooser();
-                        fileChooser.setInitialFileName(MainGameStarter.playerName +"_" + score.getNumericScore());
+                        fileChooser.setInitialFileName(MainGameStarter.playerName + "_" + score.getNumericScore());
                         fileChooser.getExtensionFilters().addAll(
                                 new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
                         File dest = fileChooser.showSaveDialog(gamePane.getParent().getScene().getWindow());
@@ -279,10 +273,10 @@ public class GameController implements Initializable {
         double y = obstacles.getFirst().getView().getTranslateY();
         double distance = (x - (player.getView().getTranslateX() + (player.isDucking() ? 59.0 : 44.0))) / 750;
 
-        nodeInput.setDistanceToNextObstacle((distance>0)?distance:0);
+        nodeInput.setDistanceToNextObstacle((distance > 0) ? distance : 0);
         nodeInput.setDistanceBetweenObstacles((obstacles.size() > 1) ? (obstacles.iterator().next().getView().getTranslateX()
-                - obstacles.iterator().next().getView().getTranslateX()) / 600 : 0.0);
-        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl ? (y / 343.0) : 0.00);
+                - obstacles.iterator().next().getView().getTranslateX()) / 700 : 0.0);
+        nodeInput.setPterodactylHeight(obstacles.getFirst() instanceof Pterodactyl ? (y / 355.0) : 0.00);
         nodeInput.setHeightOfObstacle(obstacles.getFirst().getHeight() / 50);
         nodeInput.setWidthOfObstacle((obstacles.getFirst().getWidth()) / 75);
         nodeInput.setPlayerYPosition((y - 220) / 100);

@@ -27,11 +27,9 @@ public class CactusSmall extends Obstacle implements Collideable{
 
     public CactusSmall() {
         this.setMinGap(120);
-       // this.setWidth(17.0);
-       // this.setHeight(35.0);
         this.setView(obstacleView);
-        this.getView().setTranslateX(735.0);
-        this.getView().setTranslateY(311.0);
+        this.getView().setTranslateX(750.0);
+        this.getView().setTranslateY(320.0);
         obstacleView.setImage(selectSize());
         this.collisionBoxes = collisionBoxesForCactusImage(this.getView().getTranslateX(),
                 this.getView().getTranslateY(), this.obstacleView.getImage());
@@ -71,10 +69,6 @@ public class CactusSmall extends Obstacle implements Collideable{
     public void update(){
         this.collisionBoxes = collisionBoxesForCactusImage(this.getView().getTranslateX(),
                 this.getView().getTranslateY(), this.obstacleView.getImage());
-
-           // rectangle.setTranslateX(this.getView().getTranslateX());
-          //  rectangle.setTranslateY(this.getView().getTranslateY());
-
         super.update();
     }
 

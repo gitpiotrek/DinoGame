@@ -61,15 +61,4 @@ public class GameObject {
         return view.getRotate();
     }
 
-//zajebiste rozwiązanie problemu z za dużym tłem obietów
-    /*
-public boolean isColliding(GameObject other) {
-    return getView().getBoundsInParent().intersects(other.getView().getTranslateX()+2,
-            other.getView().getTranslateY()+2,
-            other.getView().getBoundsInParent().getWidth()+4 ,
-            other.getView().getBoundsInParent().getHeight()-2);
-}
-
-     */
-
 }

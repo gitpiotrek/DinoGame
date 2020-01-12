@@ -22,11 +22,11 @@ public class MainGameStarter extends Application {
         Pane root = loader.load();
         stackPane.getChildren().add(root);
         Scene scene = new Scene(stackPane);
-       // scene.onKeyPressedProperty().bind(root.onKeyPressedProperty());
-       // scene.onKeyReleasedProperty().bind(root.onKeyReleasedProperty());
+        // scene.onKeyPressedProperty().bind(root.onKeyPressedProperty());
+        // scene.onKeyReleasedProperty().bind(root.onKeyReleasedProperty());
         primaryStage.setScene(scene);
-primaryStage.setMinHeight(400.0);
-primaryStage.setMinWidth(700.0);
+        primaryStage.setMinHeight(400.0);
+        primaryStage.setMinWidth(700.0);
         primaryStage.setOnCloseRequest(event -> {
             System.exit(0);
         });

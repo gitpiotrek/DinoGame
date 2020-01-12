@@ -15,7 +15,7 @@ public class Track extends GameObject{
     public Track(){
         this.setView(track);
         this.getView().setTranslateX(0.0);
-        this.getView().setTranslateY(346.0);
+        this.getView().setTranslateY(350.0);
         this.getView().toBack();
     }
     public void update(double currentSpeed){

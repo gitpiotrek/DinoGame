@@ -4,16 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.MenuController">
    <children>
-      <Button fx:id="playButton" layoutX="194.0" layoutY="96.0" mnemonicParsing="false" onAction="#playAction" prefHeight="51.0" prefWidth="312.0" text="Play !" />
-      <Label fx:id="dinoGameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="54.0" text="Dino Game" textAlignment="CENTER" />
-      <Button fx:id="exitButton" layoutX="526.0" layoutY="339.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="42.0" prefWidth="142.0" text="Exit" />
-      <Button fx:id="teachButton" layoutX="24.0" layoutY="169.0" mnemonicParsing="false" onAction="#teachAction" prefHeight="42.0" prefWidth="153.0" text="Train your Dino" />
-      <Button fx:id="chooseNeuralNetworkFileButton" layoutX="24.0" layoutY="234.0" mnemonicParsing="false" onAction="#chooseNeuralNetworkFileAction" prefHeight="42.0" prefWidth="153.0" text="Select Neural Network" />
-      <Button fx:id="showResultButton" layoutX="24.0" layoutY="297.0" mnemonicParsing="false" onAction="#showResultAction" prefHeight="42.0" prefWidth="153.0" text="Show result" />
-      <Label fx:id="neuralFileLabel" layoutX="194.0" layoutY="247.0" prefHeight="17.0" prefWidth="220.0" text="No file selected" />
-      <TextField fx:id="playerNameTextField" layoutX="194.0" layoutY="178.0" prefHeight="25.0" prefWidth="142.0" promptText="Enter your name" />
+      <Button fx:id="playButton" layoutX="194.0" layoutY="96.0" mnemonicParsing="false" onAction="#playAction" opacity="0.8" prefHeight="51.0" prefWidth="312.0" text="Play !" />
+      <Label fx:id="dinoGameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="276.0" layoutY="47.0" text="Dino Game" textAlignment="CENTER" />
+      <Button fx:id="exitButton" layoutX="506.0" layoutY="339.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.9" prefHeight="42.0" prefWidth="142.0" text="Exit" />
+      <Button fx:id="teachButton" layoutX="24.0" layoutY="169.0" mnemonicParsing="false" onAction="#teachAction" opacity="0.9" prefHeight="42.0" prefWidth="171.0" text="Train your Dino" />
+      <Button fx:id="chooseNeuralNetworkFileButton" alignment="CENTER" layoutX="24.0" layoutY="234.0" mnemonicParsing="false" onAction="#chooseNeuralNetworkFileAction" opacity="0.9" prefHeight="42.0" prefWidth="171.0" text="Select Neural Network" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="showResultButton" layoutX="24.0" layoutY="297.0" mnemonicParsing="false" onAction="#showResultAction" opacity="0.9" prefHeight="42.0" prefWidth="171.0" text="Show result" />
+      <Label fx:id="neuralFileLabel" layoutX="221.0" layoutY="245.0" prefHeight="17.0" prefWidth="271.0" text="No file selected">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="playerNameTextField" layoutX="221.0" layoutY="175.0" opacity="0.9" prefHeight="25.0" prefWidth="142.0" promptText="Enter your name">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
    </children>
 </Pane>

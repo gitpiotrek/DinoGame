@@ -5,9 +5,7 @@ import game.controllers.GameController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 public class Dinosaur extends GameObject {
 
@@ -28,8 +26,8 @@ public class Dinosaur extends GameObject {
     private Image dead = new Image(GameController.class.getResourceAsStream("/drawable/dino_dead.png")
             , 44.0, 47.0, true, false);
 
-    private int runningTime = 25;
-    private double jumpSpeed = 9;
+    private int runningTime = 20;
+    private double jumpSpeed = Math.abs(PhysicAbstraction.INITIAL_JUMP_VELOCITY);
     private boolean smallJumping;
     private State previousState = State.RUN;
 
@@ -42,8 +40,8 @@ public class Dinosaur extends GameObject {
     public Dinosaur() {
         animateMovement.setImage(leftLeg);
         this.setView(animateMovement);
-        this.getView().setTranslateX(10.0);
-        this.getView().setTranslateY(299.0);
+        this.getView().setTranslateX(20.0);
+        this.getView().setTranslateY(308.0);
         this.getView().toFront();
         collisionBoxes = dinoCollisionBoxes(this.getView().getTranslateX(), this.getView().getTranslateY());
     }
@@ -58,11 +56,11 @@ public class Dinosaur extends GameObject {
                 jumpSpeed -= PhysicAbstraction.GRAVITY;
             }
 
-            if ((this.getView().getTranslateY() >= 299.0) && jumpSpeed < 0.0) {
+            if ((this.getView().getTranslateY() >= 308.0) && jumpSpeed < 0.0) {
                 this.jumping = false;
                 setSmallJumping(false);
-                jumpSpeed = 9;
-                this.getView().setTranslateY(299.0);
+                jumpSpeed = Math.abs(PhysicAbstraction.INITIAL_JUMP_VELOCITY);
+                this.getView().setTranslateY(308.0);
                 update();
             }
         }
@@ -123,14 +121,14 @@ public class Dinosaur extends GameObject {
         this.duck = true;
         animateMovement.setImage(duckLeftLeg);
         this.setView(animateMovement);
-        this.getView().setTranslateY(321.0);
+        this.getView().setTranslateY(330.0);
     }
 
     public void notDuck() {
         this.duck = false;
         animateMovement.setImage(leftLeg);
         this.setView(animateMovement);
-        this.getView().setTranslateY(299.0);
+        this.getView().setTranslateY(308.0);
     }
 
     public void die() {

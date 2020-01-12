@@ -29,7 +29,7 @@ public class CactusBig extends Obstacle implements Collideable{
        // this.setHeight(50.0);
         this.setView(obstacleView);
         this.getView().setTranslateX(750.0);
-        this.getView().setTranslateY(296.0);
+        this.getView().setTranslateY(305.0);
         obstacleView.setImage(selectSize());
         this.collisionBoxes = collisionBoxesForCactusImage(this.getView().getTranslateX(),
                 this.getView().getTranslateY(), this.obstacleView.getImage());

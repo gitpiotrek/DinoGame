@@ -31,8 +31,8 @@ public class Pterodactyl extends Obstacle {
        this.setWidth(46.0);
        this.setHeight(40.0);
        this.setView(obstacleView);
-       this.getView().setTranslateX(746.0 );
-       this.getView().setTranslateY(343.0 - selectYPos());
+       this.getView().setTranslateX(750.0 );
+       this.getView().setTranslateY(355.0 - selectYPos());
        obstacleView.setImage(pterodactylUp);
        collisionBoxes = collisionBoxesForPterodacty(this.getView().getTranslateX(),this.getView().getTranslateY());
    }
