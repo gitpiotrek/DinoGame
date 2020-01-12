@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/WriteNeuralNetworkTask.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/cactus_small_one.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/drawable/cactus_small_three.png" afterDir="false" />
@@ -22,11 +23,15 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Synapse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/MainGameStarter.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> d3e18a4b6f83dc016f5d47ecfd4ec33e6a648cda
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusBig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/CactusSmall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Dinosaur.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/models/Pterodactyl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/cactusBig0000.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/drawable/cactusBigOne.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drawable/cactus_big_one.png" afterDir="false" />
@@ -75,11 +80,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/MainGameStarter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController$2.class" afterDir="false" />
+=======
+>>>>>>> d3e18a4b6f83dc016f5d47ecfd4ec33e6a648cda
       <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusBig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/CactusSmall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Dinosaur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/models/Pterodactyl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/MenuView.fxml" afterDir="false" />
@@ -288,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574892232358</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed run after ducking while neuron network is controlling and some neural network fixes">
+      <created>1578769344260</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1578769344260</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -338,6 +348,7 @@
     <MESSAGE value="Kurwa w koncu dziala tak jak powinno ale kod do optymalizacji bo zrobiony chłoporobotniczo" />
     <MESSAGE value="Poprawiony duck" />
     <MESSAGE value="Small jump added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small jump added" />
+    <MESSAGE value="fixed run after ducking while neuron network is controlling and some neural network fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed run after ducking while neuron network is controlling and some neural network fixes" />
   </component>
 </project>
