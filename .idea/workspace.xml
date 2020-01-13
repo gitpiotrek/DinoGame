@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="91e2884a-3735-4781-bf6f-b6f72d2d9a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/NeuralNetworkFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ai/fileManager/RunFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/fileManager/RunFileWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/neural/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/neural/Neuron.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/GameView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ai/neural/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/MenuView.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

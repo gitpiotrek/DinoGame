@@ -56,7 +56,7 @@ public class RunFileWriter {
             //Files.copy(file.toPath(), dest.toPath());
             neuralNetworkFileManager = new NeuralNetworkFileManager(file);
             neuralNetworkFileManager.writeNeuralNetworkToFile(dest);
-            //deleteTempFile();
+            deleteTempFile();
             }
         }catch (IOException ex) {
                 ex.printStackTrace();

@@ -158,9 +158,6 @@ public class GameController implements Initializable {
                 if (!dataReceiver.isEmpty()) {
                     try {
                         state = neuralNetwork.getStateResponse(dataReceiver.getData());
-                        if (state == State.SMALL_JUMP) {
-                            System.out.println(state);
-                        }
                         player.controlByNeuralNetwork(state);
                     } catch (Exception e) {
                         player.die();
