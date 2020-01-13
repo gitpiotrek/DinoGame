@@ -3,6 +3,7 @@ package ai.fileManager;
 import ai.communication.NodeInput;
 import ai.neural.NeuralNetwork;
 import game.controllers.MenuController;
+import javafx.concurrent.Task;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class NeuralNetworkFileManager {
+public class NeuralNetworkFileManager{
 
     private File file = null;
 
@@ -39,17 +40,8 @@ public class NeuralNetworkFileManager {
             dataToTrain.add(nodeInput);
             //neuralNetwork.train(nodeInput);
         }
-        for (NodeInput node : dataToTrain) {
-            neuralNetwork.train(node);
-        }
-        iterationToTeach = (10000 / dataToTrain.size()) + 10;
 
-        for (int j = 0; j < iterationToTeach; j++) {
-            Collections.shuffle(dataToTrain);
-            for (NodeInput node : dataToTrain) {
-                neuralNetwork.train(node);
-            }
-        }
+        neuralNetwork.trainWithShuffledData(dataToTrain);
 
         double[] synapsesWeights = neuralNetwork.getSynapsesWeights();
         for (double synapseWeight : synapsesWeights) {

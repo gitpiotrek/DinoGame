@@ -10,11 +10,14 @@ import ai.neural.NeuralNetwork;
 import game.MainGameStarter;
 import game.models.*;
 import javafx.animation.AnimationTimer;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -34,6 +37,9 @@ import static game.models.PhysicAbstraction.*;
 public class GameController implements Initializable {
     @FXML
     private Pane gamePane;
+    @FXML
+    private ProgressIndicator progressIndicator;
+
     private Score score;
     private Dinosaur player;
     private Track track;
@@ -63,6 +69,8 @@ public class GameController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         gamePane.setOnKeyPressed((e) -> {});
+        progressIndicator.setVisible(false);
+
         switch (MainGameStarter.gameState) {
             case PLAY:
                 setOnKeyPressed();
@@ -178,9 +186,8 @@ public class GameController implements Initializable {
 
         if (obstacles.getFirst().isAlive()) {
             if (player.isColliding(obstacles.getFirst())) {
-                replayImageView.setVisible(true);
+
                 timer.stop();
-                endGame.setVisible(true);
                 player.die();
 
                 menuLabel.setVisible(true);
@@ -195,6 +202,7 @@ public class GameController implements Initializable {
                                 new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
                         File dest = fileChooser.showSaveDialog(gamePane.getParent().getScene().getWindow());
                         runFileWriter.finishWriting(dest);
+                        ;
                         break;
                     case SHOW_RESULT:
                         System.out.println("Train your Dino again");
@@ -202,6 +210,9 @@ public class GameController implements Initializable {
                     default:
                         throw new IllegalStateException("Unexpected value: " + MainGameStarter.gameState);
                 }
+                replayImageView.setVisible(true);
+                endGame.setVisible(true);
+
                 gamePane.setOnKeyPressed((e) -> {
                     if ((e.getCode() == KeyCode.SPACE)) {
                         gamePane.getChildren().clear();
@@ -271,7 +282,8 @@ public class GameController implements Initializable {
         NodeInput nodeInput = new NodeInput();
         double x = obstacles.getFirst().getView().getTranslateX();
         double y = obstacles.getFirst().getView().getTranslateY();
-        double distance = (x - (player.getView().getTranslateX() + (player.isDucking() ? 59.0 : 44.0))) / 750;
+       // double distance = (x - (player.getView().getTranslateX() + (player.isDucking() ? 59.0 : 44.0))) / 750;
+        double distance = (x + obstacles.getFirst().getWidth()) / 750;
 
         nodeInput.setDistanceToNextObstacle((distance > 0) ? distance : 0);
         nodeInput.setDistanceBetweenObstacles((obstacles.size() > 1) ? (obstacles.iterator().next().getView().getTranslateX()

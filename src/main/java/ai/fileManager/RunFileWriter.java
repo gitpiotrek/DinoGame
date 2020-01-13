@@ -11,6 +11,7 @@ public class RunFileWriter {
     private FileWriter  csvWriter = null;
     private File file = new File("./" + MainGameStarter.playerName +".csv");
     private Thread ioThread;
+    private NeuralNetworkFileManager neuralNetworkFileManager;
 
     public RunFileWriter(DataReceiver dataReceiver){
         this.dataReceiver = dataReceiver;
@@ -53,7 +54,7 @@ public class RunFileWriter {
         csvWriter.close();
         if (dest != null) {
             //Files.copy(file.toPath(), dest.toPath());
-            NeuralNetworkFileManager neuralNetworkFileManager = new NeuralNetworkFileManager(file);
+            neuralNetworkFileManager = new NeuralNetworkFileManager(file);
             neuralNetworkFileManager.writeNeuralNetworkToFile(dest);
             //deleteTempFile();
             }
@@ -86,5 +87,9 @@ public class RunFileWriter {
 
     private void deleteTempFile(){
         file.delete();
+    }
+
+    public NeuralNetworkFileManager getNeuralNetworkFileManager() {
+        return neuralNetworkFileManager;
     }
 }
